@@ -1,0 +1,14 @@
+/NuGet
+/coc
+/configstore
+/efm-langserver
+/filezilla
+/fish
+/flutter
+/iterm2
+/jgit
+/wtf
+/xbuild
+
+.DS_Store 
+
