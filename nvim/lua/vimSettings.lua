@@ -51,8 +51,8 @@ vimo.showcmd = true -- display command in bottom bar
 vimo.incsearch = true -- starts searching as soon as typing, without enter needed
 
 -- White characters
-vimo.autoindent = false
-vimo.smartindent = false
+vimo.autoindent = true
+vimo.smartindent = true
 vimo.tabstop = 4 -- 1 tab = 2 spaces
 vimo.shiftwidth = 4 -- indentation rule
 vimo.formatoptions = 'qnj1' -- q  - comment formatting; n - numbered lists; j - remove comment when joining lines; 1 - don't break after one-letter word
