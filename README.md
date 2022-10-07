@@ -1,7 +1,7 @@
 # My personal shell configuration
 
 ### Installs
-1. I use `iTerm2` on macOS
+1. I use `iTerm2` on macOS. **Note:** If you are experiencing high iTerm2 memory usage, try turning off gpu rendering. In my case, this can consistently reduce memory usage by ~150MB or more.
 2. `zsh`
 3. `oh-my-zsh`
 4. `Starship` prompt
