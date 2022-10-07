@@ -1,4 +1,4 @@
-vim.cmd([[
+vim.cmd [[
     " Change bg color of autocomplete popup
     autocmd ColorScheme * highlight Pmenu ctermbg=Gray guibg=Gray
 
@@ -45,7 +45,15 @@ vim.cmd([[
         return printf('+%d ~%d -%d', a, m, r)
     endfunction
     set statusline+=%{GitStatus()}
-]])
+
+    " Disable treesitter bracket highlighting so rainbow works
+    augroup rainbow
+	    au BufEnter *     hi      TSPunctBracket NONE
+	    au BufEnter *     hi link TSPunctBracket nonexistenthl
+	    au BufEnter *.lua hi      TSConstructor  NONE
+	    au BufEnter *.lua hi link TSConstructor  nonexistenthl
+    augroup END
+]]
 
 -- For Undotree persistent
 vim.cmd [[
