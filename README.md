@@ -5,7 +5,7 @@
 2. `zsh`
 3. `oh-my-zsh`
 4. `Starship` prompt
-5. `Neovim`
+5. `Neovim` + `Lunarvim`
 6. Maybe more...?
 
 ### Getting this config
