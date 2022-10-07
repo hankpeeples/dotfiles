@@ -8,6 +8,15 @@ vim.cmd([[
     vnoremap <C-j> :m'>+<cr>`<my`>mzgv`yo`z 
     vnoremap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
+    " bracket autoclosing
+    inoremap {<CR> {<CR>}<ESC>O
+    inoremap {;<CR> {<CR>};<ESC>O
+    inoremap <expr> ) strpart(getline('.'), col('.')-1, 1) == ")" ? "\<Right>" : ")"
+    inoremap <expr> } strpart(getline('.'), col('.')-1, 1) == "}" ? "\<Right>" : "}"
+    inoremap <expr> ] strpart(getline('.'), col('.')-1, 1) == "]" ? "\<Right>" : "]"
+    inoremap <expr> ' strpart(getline('.'), col('.')-1, 1) == "\'" ? "\<Right>" : "\'\'\<Left>"
+    inoremap <expr> " strpart(getline('.'), col('.')-1, 1) == "\"" ? "\<Right>" : "\"\"\<Left>"
+    
     " Airline config symbols
     if !exists('g:airline_symbols')
         let g:airline_symbols = {}

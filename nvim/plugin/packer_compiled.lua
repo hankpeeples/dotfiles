@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/pear-tree",
     url = "https://github.com/tmsvg/pear-tree"
   },
+  rainbow = {
+    loaded = true,
+    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/rainbow",
+    url = "https://github.com/luochen1990/rainbow"
+  },
   ["rust.vim"] = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/rust.vim",

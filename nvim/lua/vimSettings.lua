@@ -77,6 +77,9 @@ vimg.rehash256 = 1
 -- GitGutter
 vimg.gitgutter_map_keys = 0
 
+-- Enable rainbow brackets
+vimg.rainbow_active = 1
+
 -- Enable vim-airline integration:
 vim.cmd('let g:airline#extensions#coc#enabled = 1')
 vimg.airline_experimental = 1

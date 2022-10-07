@@ -41,6 +41,8 @@ return require('packer').startup(function(use)
     use { 'akinsho/toggleterm.nvim', tag = '*' }
 
     use 'lewis6991/impatient.nvim'
-
+    
     use 'airblade/vim-gitgutter'
+
+    use 'luochen1990/rainbow'
 end)
