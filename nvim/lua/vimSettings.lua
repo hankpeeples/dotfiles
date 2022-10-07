@@ -79,6 +79,16 @@ vimg.gitgutter_map_keys = 0
 
 -- Enable rainbow brackets
 vimg.rainbow_active = 1
+ 
+-- Switch godoc from opening in top window to balloon
+vimg.go_doc_balloon = 1
+vimg.go_fmt_autosave = 1
+vimg.go_mod_fmt_autosave = 1
+vimg.go_metalinter_autosave = 1
+vimg.go_test_show_name = 1
+vimg.go_auto_type_info = 1
+vimg.go_imports_autosave = 0
+
 
 -- Enable vim-airline integration:
 vim.cmd('let g:airline#extensions#coc#enabled = 1')

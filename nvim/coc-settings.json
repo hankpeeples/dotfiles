@@ -1,4 +1,5 @@
 {
+    "diagnostic.checkCurrentLine": true,
     "Lua.workspace.preloadFileSize": 1000,
     "suggest.noselect": true,
     "languageserver": {
