@@ -12,7 +12,7 @@ end
 map("i", "kj", "<Esc>")
 map("v", "kj", "<Esc>")
 
-lvim.keys.normal_mode["7l"] = ":source %<CR>"
+lvim.keys.normal_mode["<leader>y"] = ":source %<CR>"
 lvim.keys.normal_mode["<leader>tt"] = ":ToggleTerm<CR>"
 lvim.keys.normal_mode["<leader>utt"] = ":UndoTreeToggle<CR>"
 lvim.keys.normal_mode["<leader>ps"] = ":PackerSync<CR>"
@@ -27,7 +27,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
-vim.keymap.del("n", "<C-Up>")
+--vim.keymap.del("n", "<C-Up>")
 -- override a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
 

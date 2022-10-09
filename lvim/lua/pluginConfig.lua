@@ -1,24 +1,55 @@
+local bi = lvim.builtin;
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
-lvim.builtin.alpha.active = true
-lvim.builtin.alpha.mode = "dashboard"
+bi.alpha.active = true
+bi.alpha.mode = "dashboard"
 
-lvim.builtin.project.active = false
+bi.project.active = false
 
-lvim.builtin.notify.active = true
+bi.notify.active = true
 
-lvim.builtin.terminal.active = true
+bi.terminal.active = true
 
-lvim.builtin.indentlines.active = false
+vim.cmd [[highlight IndentOne guibg=#262a31 gui=nocombine]]
+vim.cmd [[highlight IndentTwo guibg=#2b2f38 gui=nocombine]]
+bi.indentlines = {
+  active = false,
+  on_config_done = nil,
+  options = {
+    enabled = true,
+    buftype_exclude = { "terminal", "nofile" },
+    filetype_exclude = {
+      "help",
+      "startify",
+      "dashboard",
+      "packer",
+      "neogitstatus",
+      "NvimTree",
+      "Trouble",
+      "text",
+    },
+    char = "",
+    show_trailing_blankline_indent = false,
+    show_first_indent_level = false,
+    use_treesitter = true,
+    show_current_context = true,
+    char_highlight_list = {
+      "IndentOne", "IndentTwo",
+    },
+    space_char_highlight_list = {
+      "IndentOne", "IndentTwo",
+    },
+  },
+}
 
-lvim.builtin.nvimtree.setup.view.side = "left"
-lvim.builtin.nvimtree.setup.renderer.icons.show.git = true
-lvim.builtin.nvimtree.setup.view.adaptive_size = true
+bi.nvimtree.setup.view.side = "left"
+bi.nvimtree.setup.renderer.icons.show.git = true
+bi.nvimtree.setup.view.adaptive_size = true
 
-lvim.builtin.bufferline.options.always_show_bufferline = true
-lvim.builtin.bufferline.options.separator_style = "slant"
+bi.bufferline.options.always_show_bufferline = true
+bi.bufferline.options.separator_style = "slant"
 
 -- Syntax highlighting config
-lvim.builtin.treesitter = {
+bi.treesitter = {
   ensure_installed = {
     'c', 'cpp', 'go', 'javascript', 'typescript', 'rust', 'json', 'yaml',
     'toml', 'lua', 'dockerfile', 'gitignore', 'gomod', 'java', 'cmake',
