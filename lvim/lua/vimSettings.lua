@@ -80,10 +80,9 @@ vimo.incsearch = true -- starts searching as soon as typing, without enter neede
 -- White characters
 vimo.autoindent = true
 vimo.smartindent = true
-vimo.tabstop = 2 -- 1 tab = 2 spaces
-vimo.shiftwidth = 2 -- indentation rule
+vimo.tabstop = 4 -- 1 tab = 2 spaces
+vimo.shiftwidth = 4 -- indentation rule
 vimo.formatoptions = 'qnj1' -- q  - comment formatting; n - numbered lists; j - remove comment when joining lines; 1 - don't break after one-letter word
-vim.api.nvim_del_augroup_by_name("_format_options")
 vimo.expandtab = true -- expand tab to spaces
 
 -- Backup files
@@ -120,15 +119,12 @@ vimg.rainbow_active = 1
 --vimg.go_imports_autosave = 0
 
 -- make sure server will always be installed even if the server is in skipped_servers list
-lvim.lsp.installer.setup.ensure_installed = {
-    "sumneko_lua",
-    "jsonls",
-}
+-- lvim.lsp.installer.setup.automatic_servers_installation = true
 -- change UI setting of `LspInstallInfo`
 -- see <https://github.com/williamboman/nvim-lsp-installer#default-configuration>
 -- lvim.lsp.installer.setup.ui.check_outdated_servers_on_open = true
 -- lvim.lsp.installer.setup.ui.border = "rounded"
 -- lvim.lsp.installer.setup.ui.keymaps = {
---   uninstall_server = "d",
---   toggle_server_expand = "o",
+-- uninstall_server = "d",
+-- toggle_server_expand = "o",
 -- }
