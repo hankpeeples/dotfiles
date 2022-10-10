@@ -5,6 +5,8 @@ bi.alpha.mode = "dashboard"
 
 bi.project.active = false
 
+bi.dap.active = true
+
 bi.notify.active = true
 
 bi.terminal.active = true
@@ -93,8 +95,6 @@ vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  --   { command = "black", filetypes = { "python" } },
-  --   { command = "isort", filetypes = { "python" } },
   {
     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
     command = "prettier",
@@ -102,24 +102,73 @@ formatters.setup {
     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
     extra_args = { "--print-with", "90" },
     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
-    filetypes = { "typescript", "typescriptreact" },
+    filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
   },
+  -- {
+  -- command = "clangd"
+  -- }
 }
 
 -- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  --{
-  --  command = "flake8", filetypes = {
-  --    "python", "go", "java", "javascript", "typescript",
-  --    "javascriptreact", "typescriptreact", "rust", "lua",
-  --  }
-  --},
   {
     -- each linter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
     command = "shellcheck",
     --@usage arguments to pass to the formatter
     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
-    extra_args = { "--severity", "warning" }, { '--line-width=90' }
+    extra_args = { "--severity", "warning" }
+  },
+}
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.go" },
+  command = ":silent! lua require('go.format').goimport()"
+})
+
+local dap = require "dap"
+dap.adapters.go = {
+  type = 'executable';
+  command = 'node';
+  args = { os.getenv('HOME') .. '/vscode-go/dist/debugAdapter.js' }; -- specify the path to the adapter
+}
+dap.configurations.go = {
+  {
+    type = "go",
+    name = "Attach",
+    request = "attach",
+    processId = require("dap.utils").pick_process,
+    program = "${workspaceFolder}",
+    dlvToolPath = vim.fn.exepath('dlv')
+  },
+  {
+    type = "go",
+    name = "Debug curr file",
+    request = "launch",
+    program = "${file}",
+    dlvToolPath = vim.fn.exepath('dlv')
+  },
+  {
+    type = "go",
+    name = "Debug",
+    request = "launch",
+    program = "${workspaceFolder}",
+    dlvToolPath = vim.fn.exepath('dlv')
+  },
+  {
+    type = "go",
+    name = "Debug curr test",
+    request = "launch",
+    mode = "test",
+    program = "${file}",
+    dlvToolPath = vim.fn.exepath('dlv')
+  },
+  {
+    type = "go",
+    name = "Debug test",
+    request = "launch",
+    mode = "test",
+    program = "${workspaceFolder}",
+    dlvToolPath = vim.fn.exepath('dlv')
   },
 }
