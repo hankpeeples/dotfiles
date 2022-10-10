@@ -11,4 +11,4 @@
 /xbuild
 
 .DS_Store 
-
+*.log
