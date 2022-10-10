@@ -45,6 +45,11 @@ vim.cmd [[
         autocmd!
         autocmd VimLeave * set guicursor=a:hor20
     augroup END
+
+    augroup OpenNvimTree
+        autocmd!
+        autocmd VimEnter * :NvimTreeToggle %
+    augroup END
 ]]
 
 vim.cmd [[augroup rainbow]]
