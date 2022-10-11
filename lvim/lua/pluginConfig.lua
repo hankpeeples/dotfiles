@@ -14,10 +14,18 @@ bi.terminal.active = true
 -- For rust plugin
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
 
+local null_ls = require('null-ls')
+require('crates').setup {
+  null_ls = {
+    enabled = true,
+    name = "crates.nvim",
+  },
+}
+
 vim.cmd [[highlight IndentOne guibg=#262a31 gui=nocombine]]
 vim.cmd [[highlight IndentTwo guibg=#2b2f38 gui=nocombine]]
 bi.indentlines = {
-  active = false,
+  active = true,
   on_config_done = nil,
   options = {
     enabled = true,
@@ -34,7 +42,7 @@ bi.indentlines = {
     },
     char = "",
     show_trailing_blankline_indent = false,
-    show_first_indent_level = false,
+    show_first_indent_level = true,
     use_treesitter = true,
     show_current_context = true,
     char_highlight_list = {

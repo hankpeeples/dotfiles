@@ -22,12 +22,19 @@ lvim.keys.normal_mode["<leader>gl"] = ":GoLint<CR>"
 lvim.keys.normal_mode["<leader>gd"] = ":GoDefType<CR>"
 lvim.keys.normal_mode["<leader>ge"] = ":GoIfErr<CR>"
 
+-- Rust Mappings
+lvim.keys.normal_mode["<leader>cr"] = ":lua require('crates').reload()<CR>"
+lvim.keys.normal_mode["<leader>ca"] = ":lua require('crates').update_all_crates()<CR>"
+lvim.keys.normal_mode["<leader>cd"] = ":lua require('crates').open_documentation()<CR>"
+
+lvim.keys.normal_mode["<leader>rr"] = ":RustRun<CR>"
+
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
---vim.keymap.del("n", "<C-Up>")
+-- vim.keymap.del("n", "<leader>c")
 -- override a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>" -- or vim.keymap.set("n", "<C-q>", ":q<cr>" )
 

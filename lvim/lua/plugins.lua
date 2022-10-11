@@ -13,7 +13,7 @@ lvim.plugins = {
         max_line_len = 120, -- max line length in goline format
         tag_transform = false, -- tag_transfer  check gomodifytags for details
         verbose = true, -- output loginf in messages
-        log_path = vim.fn.expand("$HOME") .. "/.config/lvim/log.log",
+        log_path = vim.fn.expand("$HOME") .. "/.config/lvim/goLog.log",
         lsp_cfg = true, -- true: apply go.nvim non-default gopls setup
         lsp_gofumpt = false, -- true: set default gofmt in gopls format to gofumpt
         lsp_on_attach = true, -- if a on_attach function provided:  attach on_attach function to gopls
@@ -50,6 +50,14 @@ lvim.plugins = {
         },
       }
     end
+  },
+
+  {
+    'saecki/crates.nvim',
+    event = { "BufRead Cargo.toml" },
+    config = function()
+      require('crates').setup()
+    end,
   },
 
   { 'sainnhe/sonokai' },
@@ -102,7 +110,7 @@ lvim.plugins = {
           next = "j", -- next item
         },
         indent_lines = true, -- add an indent guide below the fold icons
-        auto_open = true, -- automatically open the list when you have diagnostics
+        auto_open = false, -- automatically open the list when you have diagnostics
         auto_close = true, -- automatically close the list when you have no diagnostics
         auto_preview = true, -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
         auto_fold = false, -- automatically fold a file trouble list at creation
