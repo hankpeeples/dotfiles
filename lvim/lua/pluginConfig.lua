@@ -11,6 +11,9 @@ bi.notify.active = true
 
 bi.terminal.active = true
 
+-- For rust plugin
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "rust_analyzer" })
+
 vim.cmd [[highlight IndentOne guibg=#262a31 gui=nocombine]]
 vim.cmd [[highlight IndentTwo guibg=#2b2f38 gui=nocombine]]
 bi.indentlines = {

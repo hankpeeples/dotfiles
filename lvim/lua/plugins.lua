@@ -33,18 +33,33 @@ lvim.plugins = {
     end
   },
 
+  {
+    'simrat39/rust-tools.nvim',
+    config = function()
+      require('rust-tools').setup {
+        server = {
+          on_init = require("lvim.lsp").common_on_init,
+          on_attach = function(client, bufnr)
+            require("lvim.lsp").common_on_attach(client, bufnr)
+            local rt = require "rust-tools"
+            -- Hover actions
+            vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+            -- Code action groups
+            vim.keymap.set("n", "<leader>lA", rt.code_action_group.code_action_group, { buffer = bufnr })
+          end,
+        },
+      }
+    end
+  },
+
   { 'sainnhe/sonokai' },
   { 'rafamadriz/neon' },
 
   { 'tmsvg/pear-tree' },
 
-  -- { 'kyazdani42/nvim-tree.lua' -- default
-
   { 'wakatime/vim-wakatime' },
 
-  -- { { 'akinsho/toggleterm.nvim', tag = '*' } -- default
-
-  { 'airblade/vim-gitgutter' },
+  -- { 'airblade/vim-gitgutter' },
 
   { 'luochen1990/rainbow' },
 
@@ -87,7 +102,7 @@ lvim.plugins = {
           next = "j", -- next item
         },
         indent_lines = true, -- add an indent guide below the fold icons
-        auto_open = false, -- automatically open the list when you have diagnostics
+        auto_open = true, -- automatically open the list when you have diagnostics
         auto_close = true, -- automatically close the list when you have no diagnostics
         auto_preview = true, -- automatically preview the location of the diagnostic. <esc> to close preview and go back to last window
         auto_fold = false, -- automatically fold a file trouble list at creation
