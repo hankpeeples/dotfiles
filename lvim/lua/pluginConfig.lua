@@ -22,8 +22,6 @@ require('crates').setup {
   },
 }
 
-vim.cmd [[highlight IndentOne guibg=#262a31 gui=nocombine]]
-vim.cmd [[highlight IndentTwo guibg=#2b2f38 gui=nocombine]]
 bi.indentlines = {
   active = true,
   on_config_done = nil,
@@ -40,17 +38,12 @@ bi.indentlines = {
       "Trouble",
       "text",
     },
-    char = "",
+    char = "𝄄",
+    space_char_blankline = "·",
     show_trailing_blankline_indent = false,
     show_first_indent_level = true,
     use_treesitter = true,
-    show_current_context = true,
-    char_highlight_list = {
-      "IndentOne", "IndentTwo",
-    },
-    space_char_highlight_list = {
-      "IndentOne", "IndentTwo",
-    },
+    show_current_context = false,
   },
 }
 
