@@ -8,10 +8,10 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 
 -- andromeda , atlantis
-vimg.sonokai_style = "atlantis"
-vimg.sonokai_better_performance = 1
+vimg.sonokai_style = "default"
 
 lvim.colorscheme = "sonokai"
+
 vimg.neon_style = 'default'
 vimg.neon_italic_keyword = true
 vimg.neon_italic_function = true
@@ -56,11 +56,11 @@ vimo.laststatus = 2 -- always show status line
 vimo.title = false -- set the title of window to the value of the titlestring
 vimo.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
 
-vimo.list = false -- do not display white characters
+vimo.list = true -- do not display white characters
 vimo.foldenable = false
 vimo.foldlevel = 4 -- limit folding to 4 levels
 vimo.foldmethod = 'syntax' -- use language syntax to generate folds
-vimo.wrap = true -- do not wrap lines even if very long
+vimo.wrap = false -- do not wrap lines even if very long
 vimo.eol = false -- show if there's no eol char
 vimo.showbreak = '↪' -- character to show when line is broken
 vimo.syntax = 'off'
@@ -69,7 +69,6 @@ vimo.syntax = 'off'
 vimo.number = true -- line number on the left
 
 vimo.numberwidth = 4
-vimo.signcolumn = 'yes' -- keep 1 column for coc.vim
 vimo.termguicolors = true
 vimo.modelines = 1
 vimo.showcmd = true -- display command in bottom bar
@@ -80,9 +79,9 @@ vimo.incsearch = true -- starts searching as soon as typing, without enter neede
 -- White characters
 vimo.autoindent = true
 vimo.smartindent = true
-vimo.tabstop = 4 -- 1 tab = 2 spaces
+vimo.tabstop = 2 -- 1 tab = 2 spaces
 vimo.shiftwidth = 4 -- indentation rule
-vimo.formatoptions = 'qnj1' -- q  - comment formatting; n - numbered lists; j - remove comment when joining lines; 1 - don't break after one-letter word
+-- vimo.formatoptions = 'qnj1' -- q  - comment formatting; n - numbered lists; j - remove comment when joining lines; 1 - don't break after one-letter word
 vimo.expandtab = true -- expand tab to spaces
 
 -- Backup files
@@ -107,7 +106,7 @@ vimg.rustfmt_autosave = 1
 vimg.rehash256 = 1
 
 -- Enable rainbow brackets
-vimg.rainbow_active = 1
+vimg.rainbow_active = 0
 
 -- Switch godoc from opening in top window to balloon
 --vimg.go_doc_balloon = 1

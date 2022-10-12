@@ -52,9 +52,9 @@ vim.cmd [[
     augroup END
 ]]
 
-vim.cmd [[augroup rainbow]]
-vim.cmd [[	au BufEnter *     hi      TSPunctBracket NONE]]
-vim.cmd [[	au BufEnter *     hi link TSPunctBracket nonexistenthl]]
-vim.cmd [[	au BufEnter *.lua hi      TSConstructor  NONE]]
-vim.cmd [[	au BufEnter *.lua hi link TSConstructor  nonexistenthl]]
-vim.cmd [[augroup END]]
+-- vim.cmd [[augroup rainbow]]
+-- vim.cmd [[	au BufEnter *     hi      TSPunctBracket NONE]]
+-- vim.cmd [[	au BufEnter *     hi link TSPunctBracket nonexistenthl]]
+-- vim.cmd [[	au BufEnter *.lua hi      TSConstructor  NONE]]
+-- vim.cmd [[	au BufEnter *.lua hi link TSConstructor  nonexistenthl]]
+-- vim.cmd [[augroup END]]

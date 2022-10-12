@@ -54,22 +54,21 @@ lvim.plugins = {
 
   {
     'saecki/crates.nvim',
-    event = { "BufRead Cargo.toml" },
     config = function()
       require('crates').setup()
     end,
   },
 
-  { 'sainnhe/sonokai' },
+  { 'hankpeeples/sonokai-fork' },
   { 'rafamadriz/neon' },
-
-  { 'tmsvg/pear-tree' },
 
   { 'wakatime/vim-wakatime' },
 
   -- { 'airblade/vim-gitgutter' },
 
   { 'luochen1990/rainbow' },
+
+  { "milkias17/reloader.nvim" },
 
   {
     "norcalli/nvim-colorizer.lua",
