@@ -102,6 +102,7 @@ vimo.sidescrolloff = 8
 
 -- Autosave rust
 vimg.rustfmt_autosave = 1
+vimg.rust_recommended_style = 1
 
 vimg.rehash256 = 1
 

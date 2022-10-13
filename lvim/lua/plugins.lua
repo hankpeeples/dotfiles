@@ -30,7 +30,8 @@ lvim.plugins = {
         dap_debug_gui = true, -- set to true to enable dap gui, highly recommand
         dap_debug_vt = true, -- set to true to enable dap virtual text
       })
-    end
+    end,
+    run = ":GoUpdateBinaries",
   },
 
   {

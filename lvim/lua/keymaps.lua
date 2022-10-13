@@ -13,10 +13,10 @@ map("i", "kj", "<Esc>")
 map("v", "kj", "<Esc>")
 
 lvim.keys.normal_mode["<leader>y"] = ":source %<CR>"
-lvim.keys.normal_mode["<leader>tt"] = ":ToggleTerm<CR>"
+lvim.keys.normal_mode["tt"] = ":ToggleTerm<CR>"
 lvim.keys.normal_mode["<leader>utt"] = ":UndoTreeToggle<CR>"
 lvim.keys.normal_mode["<leader>ps"] = ":PackerSync<CR>"
-lvim.keys.normal_mode["<leader>qa"] = ":confirm qall<CR>"
+lvim.keys.normal_mode["qa"] = ":confirm qall<CR>"
 -- Go mappings
 lvim.keys.normal_mode["<leader>gl"] = ":GoLint<CR>"
 lvim.keys.normal_mode["<leader>gd"] = ":GoDefType<CR>"
@@ -28,6 +28,7 @@ lvim.keys.normal_mode["<leader>ca"] = ":lua require('crates').update_all_crates(
 lvim.keys.normal_mode["<leader>cd"] = ":lua require('crates').open_documentation()<CR>"
 
 lvim.keys.normal_mode["<leader>rr"] = ":RustRun<CR>"
+lvim.keys.normal_mode["<leader>re"] = ":RustExpand<CR>"
 
 -- add your own keymapping
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
