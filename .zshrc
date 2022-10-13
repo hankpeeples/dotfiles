@@ -91,31 +91,34 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='nvim'
+export EDITOR='lvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs, plugins, and themes.
 alias archFlags="arch -x86_64" # Needed for `brew` installs
-alias zshconfig="nvim ~/.zshrc"
-alias nvc="nvim ~/.config/nvim" # Open neovim config
+alias zshconfig="lvim ~/.zshrc"
+alias nvc="lvim ~/.config/nvim" # Open neovim config
+alias lvc="lvim ~/.config/lvim" # Open lunarvim config
 alias untssh="ssh hgp0019@cell03-cse.eng.unt.edu"
 alias cdunt="cd ~/Desktop/UNT"
 alias compj="javac src/*.java && java src/Main && rm -f src/*.class" # Compile/Run Java program
-alias compcpp="g++ -std=c++11 -Wall -o run *.cpp && ./run && rm -f run" # Compile/Run C++ program
+alias compcpp="g++ -std=c++11 -Wall -o run *.cpp && ./run" # Compile/Run C++ program
 alias l="exa --long --header --git --no-permissions --no-user --all --grid --icons"
 alias ll="exa --long --no-user --git --all --icons"
 alias cdg="cd ~/go/src/github.com/hankpeeples"
 alias cdr="cd ~/Documents/Rust"
 alias refresh="source ~/.zshrc" # Refresh terminal without having to close it.
 alias start_psql="/Applications/Postgres.app/Contents/Versions/14/bin/psql -p5432" # Start postgres server
-alias starshipconfig="nvim ~/.config/starship.toml" # Open starship config
+alias starshipconfig="lvim ~/.config/starship.toml" # Open starship config
 alias bathelp="bat --plain --language=help" # `bat` is a better `cat`
 alias deploy="yarn build && firebase deploy --only hosting:henrypeeples" # For deploying personal website
 alias findFile="find / -type f -iname" # Easier command to search system for a file name
 alias mouseSens="defaults write -g com.apple.mouse.scaling" # Overwrite macOS "max" cursor speed when using external mouse. I am using 4 (max 3)
-alias lg="lazygit" # Open lazygit terminal gui 
+alias lg="lazygit" # Open lazygit terminal gui
+alias dockerOpen="open /Applications/Docker.app" # start docker desktop from terminal
+alias lvupdate="lvim +LvimUpdate +q" # update lunarvim from command line
 
 # Clsoe stupid apache server (uses port 80), must run this again after mac restart.
 alias killApache="sudo launchctl unload /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null"
@@ -131,3 +134,5 @@ export PATH="/usr/local/sbin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+fpath+=${ZDOTDIR:-~}/.zsh_functions
