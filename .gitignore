@@ -12,3 +12,8 @@
 
 .DS_Store 
 *.log
+code-server
+exercism
+
+Microsoft\\VisualStudio Services/8.0/Cache
+Microsoft\\VisualStudio Services/8.0/Cache
