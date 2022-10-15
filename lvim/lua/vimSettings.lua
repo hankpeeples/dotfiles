@@ -16,7 +16,7 @@ vimg.neon_style = 'default'
 vimg.neon_italic_keyword = true
 vimg.neon_italic_function = true
 
-lvim.transparent_window = false
+lvim.transparent_window = true
 
 lvim.use_icons = true
 

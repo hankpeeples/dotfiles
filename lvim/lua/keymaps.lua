@@ -16,7 +16,7 @@ lvim.keys.normal_mode["<leader>y"] = ":source %<CR>"
 lvim.keys.normal_mode["tt"] = ":ToggleTerm<CR>"
 lvim.keys.normal_mode["<leader>utt"] = ":UndoTreeToggle<CR>"
 lvim.keys.normal_mode["<leader>ps"] = ":PackerSync<CR>"
-lvim.keys.normal_mode["qa"] = ":confirm qall<CR>"
+lvim.keys.normal_mode["<leader>qa"] = ":confirm qall<CR>"
 -- Go mappings
 lvim.keys.normal_mode["<leader>gl"] = ":GoLint<CR>"
 lvim.keys.normal_mode["<leader>gd"] = ":GoDefType<CR>"

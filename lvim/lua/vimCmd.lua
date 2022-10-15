@@ -50,6 +50,11 @@ vim.cmd [[
         autocmd!
         autocmd VimEnter * :NvimTreeToggle %
     augroup END
+
+    augroup SaveRustOnInsertLeave
+        autocmd!
+        autocmd InsertLeave *.rs :w
+    augroup END
 ]]
 
 -- vim.cmd [[augroup rainbow]]
