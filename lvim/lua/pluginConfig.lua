@@ -125,6 +125,20 @@ linters.setup {
   },
 }
 
+require('lspconfig').rust_analyzer.setup {
+  settings = {
+    ['rust-analyzer'] = {
+      checkOnSave = {
+        allFeatures = true,
+        overrideCommand = {
+          'cargo', 'clippy', '--workspace', '--message-format=json',
+          '--all-targets', '--all-features'
+        }
+      }
+    }
+  }
+}
+
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = { "*.go" },
   command = ":silent! lua require('go.format').goimport()"
