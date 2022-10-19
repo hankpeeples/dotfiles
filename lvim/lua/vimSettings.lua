@@ -16,7 +16,7 @@ vimg.neon_style = 'default'
 vimg.neon_italic_keyword = true
 vimg.neon_italic_function = true
 
-lvim.transparent_window = true
+lvim.transparent_window = false
 
 lvim.use_icons = true
 
@@ -56,7 +56,7 @@ vimo.laststatus = 2 -- always show status line
 vimo.title = false -- set the title of window to the value of the titlestring
 vimo.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
 
-vimo.list = true -- do not display white characters
+vimo.list = false
 vimo.foldenable = false
 vimo.foldlevel = 4 -- limit folding to 4 levels
 vimo.foldmethod = 'syntax' -- use language syntax to generate folds
@@ -107,7 +107,7 @@ vimg.rust_recommended_style = 1
 vimg.rehash256 = 1
 
 -- Enable rainbow brackets
-vimg.rainbow_active = 0
+vimg.rainbow_active = 1
 
 -- Switch godoc from opening in top window to balloon
 --vimg.go_doc_balloon = 1
