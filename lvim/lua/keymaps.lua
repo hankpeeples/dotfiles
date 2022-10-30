@@ -30,6 +30,9 @@ lvim.keys.normal_mode["<leader>cd"] = ":lua require('crates').open_documentation
 lvim.keys.normal_mode["<leader>rr"] = ":RustRun<CR>"
 lvim.keys.normal_mode["<leader>re"] = ":RustExpand<CR>"
 
+lvim.keys.normal_mode["<leader>in"] = ":lua require('rust-tools').inlay_hints.enable()<CR>"
+lvim.keys.normal_mode["<leader>io"] = ":lua require('rust-tools').inlay_hints.disable()<CR>"
+
 -- add your own keymapping
 lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"

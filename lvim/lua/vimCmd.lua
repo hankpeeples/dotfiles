@@ -46,20 +46,15 @@ vim.cmd [[
         autocmd VimLeave * set guicursor=a:hor20
     augroup END
 
-    augroup OpenNvimTree
-        autocmd!
-        autocmd VimEnter * :NvimTreeToggle %
-    augroup END
+    " augroup OpenNvimTree
+    "     autocmd!
+    "     autocmd VimEnter * :NvimTreeToggle %
+    " augroup END
 
     augroup SaveRustOnInsertLeave
         autocmd!
         autocmd InsertLeave *.rs write
     augroup END
-
-    hi DiagnosticError guifg=#88088F
-    hi DiagnosticWarn guifg=DarkOrange
-    hi DiagnosticInfo guifg=Blue
-    hi DiagnosticHint guifg=Green
 ]]
 
 vim.cmd [[augroup rainbow]]

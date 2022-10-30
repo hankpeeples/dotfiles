@@ -8,13 +8,13 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 
 -- andromeda , atlantis
-vimg.sonokai_style = "default"
+-- vimg.sonokai_style = "default"
 
-lvim.colorscheme = "sonokai"
+-- lvim.colorscheme = "sonokai"
 
-vimg.neon_style = 'default'
-vimg.neon_italic_keyword = true
-vimg.neon_italic_function = true
+-- vimg.neon_style = 'default'
+-- vimg.neon_italic_keyword = true
+-- vimg.neon_italic_function = true
 
 lvim.transparent_window = false
 
@@ -128,3 +128,13 @@ vimg.rainbow_active = 1
 -- uninstall_server = "d",
 -- toggle_server_expand = "o",
 -- }
+
+-- Neovide settings
+vim.cmd [[
+    if exists("g:neovide") 
+        set guifont=JetBrains\ Mono\ NL,MesloLGS \NF:h12
+        let g:neovide_scroll_animation_length = 0.1
+        let g:neovide_hide_mouse_when_typing = v:true
+        let g:neovide_cursor_vfx_mode = "sonicboom"
+    endif
+]]
