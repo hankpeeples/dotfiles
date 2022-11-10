@@ -60,12 +60,14 @@ lvim.plugins = {
     end
   },
 
-  {
-    'saecki/crates.nvim',
-    config = function()
-      require('crates').setup()
-    end,
-  },
+  -- { 'dense-analysis/ale' },
+
+  -- {
+  --   'saecki/crates.nvim',
+  --   config = function()
+  --     require('crates').setup()
+  --   end,
+  -- },
 
   {
     'j-hui/fidget.nvim',
@@ -275,7 +277,7 @@ lvim.plugins = {
           },
         }
       })
-      vim.api.nvim_command "colorscheme catppuccin"
+      -- vim.api.nvim_command "colorscheme catppuccin"
     end
   },
 

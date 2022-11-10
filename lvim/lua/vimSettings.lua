@@ -8,9 +8,9 @@ lvim.log.level = "warn"
 lvim.format_on_save = true
 
 -- andromeda , atlantis
--- vimg.sonokai_style = "default"
+vimg.sonokai_style = "default"
 
--- lvim.colorscheme = "sonokai"
+lvim.colorscheme = "sonokai"
 
 -- vimg.neon_style = 'default'
 -- vimg.neon_italic_keyword = true
@@ -132,9 +132,39 @@ vimg.rainbow_active = 1
 -- Neovide settings
 vim.cmd [[
     if exists("g:neovide") 
-        set guifont=JetBrains\ Mono\ NL,MesloLGS \NF:h12
+        set guifont=JetBrains_Mono_NL,MesloLGS_NF:h12
         let g:neovide_scroll_animation_length = 0.1
         let g:neovide_hide_mouse_when_typing = v:true
         let g:neovide_cursor_vfx_mode = "sonicboom"
+        let g:neovide_fullscreen = v:false
+        let g:neovide_remember_window_size = v:true
+        let g:neovide_profiler = v:false
+        let g:neovide_cursor_animation_length=0.07
     endif
 ]]
+
+vim.cmd [[
+    let g:ale_fixers = {
+    \   '*': ['trim_whitespace'],
+    \   'javascript': ['eslint', 'prettier'],
+    \   'typescript': ['eslint', 'prettier'],
+    \}
+]]
+
+vim.cmd [[
+    if executable('gopls')
+        autocmd User lsp_setup call lsp#register_server({
+            \   'name': 'gopls',
+            \   'cmd': ['gopls'],
+            \   'allowlist': ['go', 'gomod'],
+        \ })
+    endif
+
+    let g:ale_linters = {
+        \   'go': ['golint'],
+        \ }
+
+]]
+
+vimg.ale_completion_enabled = 1
+vimg.ale_fix_on_save = 0
