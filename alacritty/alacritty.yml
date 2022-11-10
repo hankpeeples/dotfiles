@@ -1,0 +1,224 @@
+# Configuration for Alacritty, the GPU enhanced terminal emulator.
+
+# Setup term for programs to be able to use it
+env:
+  TERM: alacritty
+
+window:
+  # Window dimensions (changes require restart)
+  #
+  # Specified in number of columns/lines, not pixels.
+  # If both are `0`, this setting is ignored.
+  #dimensions:
+  #  columns: 0
+  #  lines: 0
+
+  # Window position (changes require restart)
+  #
+  # Specified in number of pixels.
+  # If the position is not set, the window manager will handle the placement.
+  #position:
+  #  x: 0
+  #  y: 0
+
+  # Window padding (changes require restart)
+  #
+  # Blank space added around the window in pixels. This padding is scaled
+  # by DPI and the specified value is always added at both opposing sides.
+  padding:
+    x: 6
+    y: 2
+
+  # Spread additional padding evenly around the terminal content.
+  dynamic_padding: false
+
+  # Background opacity
+  #
+  # Window opacity as a floating point number from `0.0` to `1.0`.
+  # The value `0.0` is completely transparent and `1.0` is opaque.
+  opacity: 0.95
+
+  # Window decorations
+  #
+  # Values for `decorations`:
+  #     - full: Borders and title bar
+  #     - none: Neither borders nor title bar
+  #
+  # Values for `decorations` (macOS only):
+  #     - transparent: Title bar, transparent background and title bar buttons
+  #     - buttonless: Title bar, transparent background, but no title bar buttons
+  decorations: buttonless
+
+  # Startup Mode (changes require restart)
+  #
+  # Values for `startup_mode`:
+  #   - Windowed
+  #   - Maximized
+  #   - Fullscreen
+  #
+  # Values for `startup_mode` (macOS only):
+  #   - SimpleFullscreen
+  # startup_mode: SimpleFullscreen
+
+  # Window title
+  title: Alacritty
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 1000
+
+  # Number of lines the viewport will move for every line scrolled when
+  # scrollback is enabled (history > 0).
+  #multiplier: 3
+
+  # Scroll to the bottom when new text is written to the terminal.
+  #auto_scroll: false
+
+# Spaces per Tab (changes require restart)
+#
+# This setting defines the width of a tab in cells.
+#
+# Some applications, like Emacs, rely on knowing about the width of a tab.
+# To prevent unexpected behavior in these applications, it's also required to
+# change the `it` value in terminfo when altering this setting.
+#tabspaces: 8
+
+font:
+  # Normal font face - Also used to draw glyphs on tmux & VIM
+  # normal:
+  #   # Font name
+  #   family: Iosevka Nerd Font Mono
+  #   # Font face
+  #   style: Regular
+
+  # # Bold font face
+  # bold:
+  #   family: Iosevka Nerd Font Mono
+  #   style: Bold
+
+  # # Italic font face
+  # italic:
+  #   family: Iosevka Nerd Font Mono
+  #   style: Italic
+
+  # # Bold italic font face
+  # bold_italic:
+  #   family: Iosevka Nerd Font Mono
+  #   style: Bold Italic
+
+  # normal:
+  #   family: SpaceMono Nerd Font Mono
+  #   # Font face
+  #   style: Regular
+
+  # # Bold font face
+  # bold:
+  #   family: SpaceMono Nerd Font Mono
+  #   style: Bold
+
+  # # Italic font face
+  # italic:
+  #   family: SpaceMono Nerd Font Mono
+  #   style: Italic
+
+  # # Bold italic font face
+  # bold_italic:
+  #   family: SpaceMono Nerd Font Mono
+  #   style: Bold Italic
+  
+  normal:
+    # Font name
+    family: SauceCodePro Nerd Font Mono
+    # Font face
+    style: Regular
+
+  # Bold font face
+  bold:
+    family: SauceCodePro Nerd Font Mono
+    style: Semibold
+
+  # Italic font face
+  italic:
+    family: SauceCodePro Nerd Font Mono
+    style: Italic
+
+  # Bold italic font face
+  bold_italic:
+    family: SauceCodePro Nerd Font Mono
+    style: Semibold Italic
+
+  # Font size
+  size: 11.0
+
+  # Offset is the extra space around each character. `offset.y` can be thought of
+  # as modifying the line spacing, and `offset.x` as modifying the letter spacing
+  offset:
+   x: 0
+   y: 0
+
+  # Note: This requires RESTART
+  # By default when you change the offset above you'll see an issue, where the texts are bottom
+  # aligned with the cursor, this is to make sure they center align.
+  # This offset should usually be 1/2 of the above offset-y being set.
+  # glyph_offset:
+  #  x: 0
+  #  # Keeping this as half of offset to vertically align the text in cursor
+  #  y: 0
+
+  # If the font quality on non-retina display looks bad then set
+  # `use_thin_strokes` to `true` and enable font smoothing by running the
+  # following command:
+  #   `defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO`
+
+# If `true`, bold text is drawn using the bright color variants.
+draw_bold_text_with_bright_colors: true
+
+selection:
+  semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+
+  # When set to `true`, selected text will be copied to the primary clipboard.
+  save_to_clipboard: false
+
+# Live config reload (changes require restart)
+live_config_reload: true
+
+cursor:
+  # Values for `style`:
+  #   - ▇ Block
+  #   - _ Underline
+  #   - | Beam
+  style: Underline
+  unfocused_hollow: true
+  blinking: On
+  thickness: 0.25
+
+# Monokai-pro theme
+colors: 
+  # Default colors
+    primary:
+      background: '#1f1f1f'
+      foreground: '#FCFCFA'
+
+    # Normal colors
+    normal:
+      black:   '#403E41'
+      red:     '#FF6188'
+      green:   '#A9DC76'
+      yellow:  '#FFD866'
+      blue:    '#FC9867'
+      magenta: '#AB9DF2'
+      cyan:    '#78DCE8'
+      white:   '#FCFCFA'
+
+    # Bright colors
+    bright:
+      black:   '#727072'
+      red:     '#FF6188'
+      green:   '#A9DC76'
+      yellow:  '#FFD866'
+      blue:    '#FC9867'
+      magenta: '#AB9DF2'
+      cyan:    '#78DCE8'
+      white:   '#FCFCFA'
+
