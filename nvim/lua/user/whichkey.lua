@@ -17,7 +17,7 @@ local opts = {
 
 local mappings = {
 	["w"] = { "<cmd>update!<CR>", "Save" },
-	["q"] = { "<cmd>q!<CR>", "Quit" },
+	["q"] = { "<cmd>q<CR>", "Quit" },
 
 	b = {
 		name = "Buffer",
@@ -34,20 +34,20 @@ local mappings = {
 		u = { "<cmd>PackerUpdate<cr>", "Update" },
 	},
 
-  f = {
-    name = "Telescope"
-  },
+	f = {
+		name = "Telescope",
+	},
 
-  g = {
-    name = "LazyGit"
-  },
+	g = {
+		name = "Git",
+	},
 
-  d = {
-    name = "DAP"
-  },
+	d = {
+		name = "DAP",
+	},
 
-  l = {
-    name = "LSP"
-  }
+	l = {
+		name = "LSP",
+	},
 }
 wk.register(mappings, opts)
