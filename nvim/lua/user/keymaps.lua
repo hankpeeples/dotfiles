@@ -2,6 +2,7 @@
 local keymap = vim.keymap.set
 -- Silent keymap option
 local opts = { silent = true }
+local nor_opts = { silent = true, noremap = true }
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -63,6 +64,9 @@ keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
+keymap("n", "]h", "<Plug>(GitGutterNextHunk)", opts)
+keymap("n", "[h", "<Plug>(GitGutterPrevHunk)", opts)
+keymap("n", "gh", "<Plug>(GitGutterUndoHunk)", nor_opts)
 
 -- Comment
 keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle.linewise.current()<CR>", opts)
