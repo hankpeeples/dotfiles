@@ -1,24 +1,130 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+format = "$all"
+right_format = "$cmd_duration"
+
 command_timeout = 20000
 
+[jobs]
+disabled = true
+symbol_threshold = 0
+number_threshold = 0
+
+[fill]
+symbol = "-"
+style = "dimmed #2f2f2f"
+
 [character]
-success_symbol = "[▷](bold green)"
+success_symbol = "[➤](bold green)"
 error_symbol = "[✖](bold red)"
 
 [aws]
 disabled = true
+symbol = "  "
 
 [directory]
-truncation_length = 5
+read_only = " "
+home_symbol = "⌂"
+truncate_to_repo = false
+truncation_length = 2
+truncation_symbol = "⇐ "
 format = "[$path]($style)[$lock_symbol]($lock_style) "
 
 [git_state]
+disabled = false
 format = '($state( $progress_current of $progress_total)) '
 
 [git_status]
-staged = '[++\($count\)](green)'
-ahead = "⇡${count}(red)"
-diverged = "⇕⇡${ahead_count}⇣${behind_count}(bold red)"
-behind = "⇣${count}(red)"
-modified = "~${count}(yellow)"
+staged = ' [++\($count\)](green) '
+ahead = " ⇡${count}(red) "
+diverged = " ⇕⇡${ahead_count}⇣${behind_count}(bold red) "
+behind = " ⇣${count}(red) "
+modified = " ~${count}(yellow) "
+
+[git_metrics]
+disabled = false
+format = "([+$added](dimmed green) )([-$deleted](dimmed red) )"
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[git_branch]
+always_show_remote = false
+symbol = " "
+format = "on [$symbol$branch(:$remote_branch)](italic yellow) "
+
+[golang]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[hg_branch]
+symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = " "
+disabled = true
+threshold = -1
+style = "dimmed white"
+format = "$symbol[${ram}]($style) "
+
+[meson]
+symbol = "喝 "
+
+[nim]
+symbol = " "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[package]
+symbol = " "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "ﳒ "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[spack]
+symbol = "🅢 "
