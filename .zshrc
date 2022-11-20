@@ -30,7 +30,8 @@ export ZSH="/Users/hankpeeples/.oh-my-zsh"
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' mode auto
+zstyle ':completion:*' menu select
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
@@ -74,7 +75,9 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions colored-man-pages)
+plugins=(git zsh-z zsh-syntax-highlighting zsh-autosuggestions 
+    colored-man-pages yarn-autocompletions brew zsh-brew-services
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -91,19 +94,18 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='lvim'
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs, plugins, and themes.
 alias archFlags="arch -x86_64" # Needed for `brew` installs
-alias zshconfig="lvim ~/.zshrc"
-alias nvc="lvim ~/.config/nvim" # Open neovim config
-alias lvc="lvim ~/.config/lvim" # Open lunarvim config
+alias zshconfig="nvim ~/.zshrc"
+alias nvc="nvim ~/.config/nvim" # Open neovim config
 alias untssh="ssh hgp0019@cell03-cse.eng.unt.edu"
 alias cdunt="cd ~/Desktop/UNT"
-alias compj="javac src/*.java && java src/Main && rm -f src/*.class" # Compile/Run Java program
+alias compj="javac src/*.java && java src/MicroPythonAST && rm -f src/*.class" # Compile/Run Java program
 alias compcpp="g++ -std=c++11 -Wall -o run *.cpp && ./run" # Compile/Run C++ program
 alias l="exa --long --header --git --no-permissions --no-user --all --grid --icons"
 alias ll="exa --long --no-user --git --all --icons"
@@ -111,14 +113,19 @@ alias cdg="cd ~/go/src/github.com/hankpeeples"
 alias cdr="cd ~/Documents/Rust"
 alias refresh="source ~/.zshrc" # Refresh terminal without having to close it.
 alias start_psql="/Applications/Postgres.app/Contents/Versions/14/bin/psql -p5432" # Start postgres server
-alias starshipconfig="lvim ~/.config/starship.toml" # Open starship config
+alias starshipconfig="nvim ~/.config/starship.toml" # Open starship config
 alias bathelp="bat --plain --language=help" # `bat` is a better `cat`
 alias deploy="yarn build && firebase deploy --only hosting:henrypeeples" # For deploying personal website
 alias findFile="find / -type f -iname" # Easier command to search system for a file name
 alias mouseSens="defaults write -g com.apple.mouse.scaling" # Overwrite macOS "max" cursor speed when using external mouse. I am using 4 (max 3)
 alias lg="lazygit" # Open lazygit terminal gui
 alias dockerOpen="open /Applications/Docker.app" # start docker desktop from terminal
-alias lvupdate="lvim +LvimUpdate +q" # update lunarvim from command line
+alias codeServer="/opt/homebrew/opt/code-server/bin/code-server" # starts code-server without background process
+alias qr="quilt refresh"
+alias qp="quilt push -a"
+alias gmu="git submodule update --init"
+alias alacrittyConfig="nvim ~/.config/alacritty/alacritty.yml"
+alias kittyconf="nvim ~/.config/kitty/kitty.conf"
 
 # Clsoe stupid apache server (uses port 80), must run this again after mac restart.
 alias killApache="sudo launchctl unload /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null"
@@ -127,12 +134,27 @@ help() {
     "$@" --help 2>&1 | bathelp
 }
 
+if type brew &>/dev/null; then
+    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+
+    autoload -Uz compinit
+    compinit
+fi
+
 eval "$(starship init zsh)"
 
-export PATH="/usr/local/sbin:$PATH"
+# export PATH="/usr/local/sbin:$PATH"
+# export PATH="/opt/homebrew/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+export PYENV_ROOT="/opt/homebrew/Cellar/python@3.10/3.10.8/bin"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
