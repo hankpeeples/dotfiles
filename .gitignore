@@ -9,11 +9,19 @@
 /jgit
 /wtf
 /xbuild
+nvim/plugin
+lvim/plugin
 
 .DS_Store 
 *.log
 code-server
 exercism
 
+linearmouse
+prettierd
+yarn
+
 Microsoft\\VisualStudio\ Services
 Microsoft\\VisualStudio\ Services
+topgrade.toml
+nvim/google-java-format-1.15.0-all-deps.jar
