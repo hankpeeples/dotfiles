@@ -64,7 +64,9 @@ return packer.startup(function(use)
 	use({ "folke/tokyonight.nvim" })
 	use({ "glepnir/zephyr-nvim" })
 	use({ "tomasr/molokai" })
-  use({ 'navarasu/onedark.nvim' })
+	use({ "navarasu/onedark.nvim" })
+	use({ "cpea2506/one_monokai.nvim" })
+	use({ "sainnhe/gruvbox-material" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -85,9 +87,10 @@ return packer.startup(function(use)
 	use({ "williamboman/mason-lspconfig.nvim" })
 	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
 	use({ "RRethy/vim-illuminate" })
-  use({ "folke/trouble.nvim" })
-  -- Golang
-  use({ "ray-x/go.nvim" })
+	use({ "folke/trouble.nvim" })
+	use({ "j-hui/fidget.nvim" })
+	-- Golang
+	use({ "ray-x/go.nvim" })
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
@@ -97,9 +100,16 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac",
 	})
+	use({
+		"norcalli/nvim-colorizer.lua",
+		config = function()
+			require("colorizer").setup()
+		end,
+	})
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
+	use({ "airblade/vim-gitgutter" })
 
 	-- DAP
 	use({ "mfussenegger/nvim-dap" })
