@@ -3,9 +3,9 @@ if not status_ok then
 	return
 end
 
-local hide_in_width = function()
-	return vim.fn.winwidth(0) > 80
-end
+-- local hide_in_width = function()
+-- 	return vim.fn.winwidth(0) > 80
+-- end
 
 local diagnostics = {
 	"diagnostics",
@@ -20,7 +20,7 @@ local diff = {
 	"diff",
 	colored = true,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-	cond = hide_in_width,
+	-- cond = hide_in_width,
 }
 
 local filetype = {
@@ -63,9 +63,9 @@ lualine.setup({
 	},
 	sections = {
 		lualine_a = { "mode" },
-		lualine_b = { "branch" },
+		lualine_b = { "branch", diff },
 		lualine_c = { diagnostics },
-		lualine_x = { diff, { lsp_client, icon = "⚙", color = { fg = "#8588ff" } }, spaces },
+		lualine_x = { { lsp_client, icon = "⚙", color = { fg = "#8588ff" } }, spaces },
 		lualine_y = { "encoding", location },
 		lualine_z = { "progress" },
 	},
