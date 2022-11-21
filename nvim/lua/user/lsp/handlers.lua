@@ -31,7 +31,7 @@ M.setup = function()
 		severity_sort = true,
 		float = {
 			focusable = true,
-			style = "minimal",
+			-- style = "minimal",
 			border = "rounded",
 			source = "always",
 			header = "",
@@ -59,7 +59,7 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "<leader>lI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lO", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<cr>", opts)
 	keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<cr>", opts)
 	-- keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
 	keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
@@ -78,6 +78,8 @@ M.on_attach = function(client, bufnr)
 	if client.name == "sumneko_lua" then
 		client.server_capabilities.documentFormattingProvider = false
 	end
+
+	vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.format()")
 
 	lsp_keymaps(bufnr)
 	local status_ok, illuminate = pcall(require, "illuminate")
