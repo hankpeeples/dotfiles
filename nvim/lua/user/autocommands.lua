@@ -25,6 +25,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
+vim.cmd("autocmd BufEnter *.go setlocal shiftwidth=4 tabstop=4")
 
 vim.api.nvim_create_autocmd({ "VimResized" }, {
 	callback = function()
@@ -54,6 +55,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
 	callback = function()
 		vim.cmd("hi link illuminatedWord LspReferenceText")
+		vim.cmd("GitGutterSignsDisable")
 	end,
 })
 
@@ -67,13 +69,9 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 })
 
 -- Golang
-vim.cmd("autocmd FileType go nmap <Leader><Leader>l GoLint")
-vim.cmd("autocmd FileType go nmap <Leader>gc :lua require('go.comment').gen()")
--- Run gofmt + goimport on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.go",
-  callback = function()
-   require('go.format').goimport()
-  end,
-  group = format_sync_grp,
-})
+vim.cmd([[ 
+  augroup NvimGo
+    autocmd!
+    autocmd User NvimGoLintPopupPost wincmd p
+  augroup END
+]]) -- Show lint pannel without focusing

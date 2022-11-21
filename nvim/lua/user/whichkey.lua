@@ -17,7 +17,7 @@ local opts = {
 
 local mappings = {
 	["w"] = { "<cmd>update!<CR>", "Save" },
-	["q"] = { "<cmd>q<CR>", "Quit" },
+	["q"] = { "<cmd>qa<CR>", "Quit" },
 
 	b = {
 		name = "Buffer",
