@@ -90,7 +90,7 @@ return packer.startup(function(use)
 	use({ "folke/trouble.nvim" })
 	use({ "j-hui/fidget.nvim" })
 	-- Golang
-	use({ "ray-x/go.nvim" })
+	use({ "crispgm/nvim-go" })
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
