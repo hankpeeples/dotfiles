@@ -20,6 +20,7 @@ null_ls.setup({
 				"--parser=babel-ts",
 				"--trailing-comma=es5",
 				"--prose-wrap=always",
+				"--jsx-single-quote",
 				"--loglevel=debug",
 			},
 		}),
