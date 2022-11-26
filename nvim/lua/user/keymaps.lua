@@ -18,10 +18,10 @@ vim.g.mapleader = " "
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "wh", "<C-w>h", opts)
+keymap("n", "wj", "<C-w>j", opts)
+keymap("n", "wk", "<C-w>k", opts)
+keymap("n", "wl", "<C-w>l", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -43,8 +43,9 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Insert --
--- Press jk fast to enter
-keymap("i", "kj", "<ESC>", opts)
+-- Press ii fast to enter
+keymap("i", "ii", "<ESC>", opts)
+keymap("v", "ii", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -61,6 +62,10 @@ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
+
+-- Restart treesitter rainbow
+keymap("n", "<leader>ro", ":TSDisable rainbow<CR>", opts)
+keymap("n", "<leader>rO", ":TSEnable rainbow<CR>", opts)
 
 -- Git
 keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
@@ -82,3 +87,11 @@ keymap("n", "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", opts)
 keymap("n", "<leader>dl", "<cmd>lua require'dap'.run_last()<cr>", opts)
 keymap("n", "<leader>du", "<cmd>lua require'dapui'.toggle()<cr>", opts)
 keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
+
+vim.cmd([[
+  " Move line down Ctrl-j up with Ctrl-k
+  nnoremap <C-j> mz:m+<cr>`z
+  nnoremap <C-k> mz:m-2<cr>`z
+  vnoremap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
+  vnoremap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
+]])
