@@ -25,7 +25,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
+
 vim.cmd("autocmd BufEnter *.go setlocal shiftwidth=4 tabstop=4")
+vim.cmd("autocmd BufEnter *.css setlocal shiftwidth=4 tabstop=4")
 
 vim.api.nvim_create_autocmd({ "VimResized" }, {
 	callback = function()
