@@ -43,9 +43,9 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Insert --
--- Press ii fast to enter
-keymap("i", "ii", "<ESC>", opts)
-keymap("v", "ii", "<ESC>", opts)
+-- Press jk fast to enter
+keymap("i", "jk", "<ESC>", opts)
+keymap("v", "jk", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -53,6 +53,8 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Plugins --
+-- Prettier format
+keymap("n", "<leader>x", ":Prettier<CR>", opts)
 
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)

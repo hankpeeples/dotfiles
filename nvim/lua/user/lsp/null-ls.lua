@@ -12,23 +12,26 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({
-			extra_args = {
-				"--config-precedenece=prefer-file",
-				"--print-width=110",
-				"--arrow-parens=always",
-				"--parser=babel-ts",
-				"--trailing-comma=es5",
-				"--prose-wrap=always",
-				"--jsx-single-quote",
-				"--loglevel=debug",
-			},
-		}),
+		-- formatting.prettier.with({
+		-- 	extra_args = {
+		-- 		"--config-precedenece=prefer-file",
+		-- 		"--print-width=110",
+		-- 		"--arrow-parens=always",
+		-- 		"--parser=babel-ts",
+		-- 		"--trailing-comma=es5",
+		-- 		"--prose-wrap=always",
+		-- 		"--jsx-single-quote",
+		-- 		"--single-attribute-per-line=true",
+		-- 		"--bracket-spacing=true",
+		-- 		"--loglevel=debug",
+		-- 	},
+		-- }),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
-		formatting.google_java_format,
 		diagnostics.flake8,
 		diagnostics.write_good,
 		formatting.stylelint,
+		diagnostics.jsonlint, -- JSON
+		formatting.uncrustify, -- Java, C++, C, C#
 	},
 })
