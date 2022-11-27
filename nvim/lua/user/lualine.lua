@@ -66,7 +66,7 @@ lualine.setup({
 		lualine_b = { "branch", diff },
 		lualine_c = { diagnostics },
 		lualine_x = { { lsp_client, icon = "⚙", color = { fg = "#8588ff" } }, spaces },
-		lualine_y = { "encoding", location },
+		lualine_y = { "encoding", location, " " },
 		lualine_z = { "progress" },
 	},
 })
