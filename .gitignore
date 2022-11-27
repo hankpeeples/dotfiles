@@ -9,8 +9,6 @@
 /jgit
 /wtf
 /xbuild
-nvim/plugin
-lvim/plugin
 
 .DS_Store 
 *.log
