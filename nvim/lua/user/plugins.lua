@@ -89,6 +89,12 @@ return packer.startup(function(use)
 	-- snippets
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
 	use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
+	use({
+		"windwp/nvim-ts-autotag",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	})
 
 	-- LSP
 	-- use { "williamboman/nvim-lsp-installer"  } -- simple to use language server installer
@@ -99,6 +105,8 @@ return packer.startup(function(use)
 	use({ "RRethy/vim-illuminate" })
 	use({ "folke/trouble.nvim" })
 	use({ "j-hui/fidget.nvim" })
+	use({ "MunifTanjim/prettier.nvim" })
+
 	-- Golang
 	use({ "crispgm/nvim-go" })
 
