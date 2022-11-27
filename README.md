@@ -6,7 +6,8 @@
 3. `oh-my-zsh`
 4. `Starship` prompt
 5. `Neovim`
-6. Maybe more...?
+
+- Start neovim with 'weak' config by using `nvim -u ~/.config/nvim/initWeak.lua` (I have this aliased to `nvimw`). This starts a much lighter & faster nvim config 
 
 ### Getting this config
 ```
@@ -23,5 +24,5 @@ wget https://raw.githubusercontent.com/hankpeeples/ShellConfig/master
   - `brew install neovim`
 
 ### Notes
-- My `.zshrc` is located in my home directory, `~/`
+- My `.zshrc` is in my home directory, `~/`
 - All other files/folders are located within `~/.config`, they then follow the hierarchy seen here.
