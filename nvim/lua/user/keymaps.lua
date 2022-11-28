@@ -43,9 +43,9 @@ keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)
 keymap("v", "p", '"_dP', opts)
 
 -- Insert --
--- Press jk fast to enter
-keymap("i", "jk", "<ESC>", opts)
-keymap("v", "jk", "<ESC>", opts)
+-- Press ii fast to enter
+keymap("i", "ii", "<ESC>", opts)
+keymap("v", "ii", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
