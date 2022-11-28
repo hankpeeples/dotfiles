@@ -99,6 +99,11 @@ _G.packer_plugins = {
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  ["ccc.nvim"] = {
+    loaded = true,
+    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/ccc.nvim",
+    url = "https://github.com/uga-rosa/ccc.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -124,6 +129,11 @@ _G.packer_plugins = {
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["feline.nvim"] = {
+    loaded = true,
+    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/feline.nvim",
+    url = "https://github.com/feline-nvim/feline.nvim"
+  },
   ["fidget.nvim"] = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/fidget.nvim",
@@ -139,10 +149,21 @@ _G.packer_plugins = {
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
+  ["glow.nvim"] = {
+    loaded = true,
+    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/glow.nvim",
+    url = "https://github.com/ellisonleao/glow.nvim"
+  },
   ["gruvbox-material"] = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/gruvbox-material",
     url = "https://github.com/sainnhe/gruvbox-material"
+  },
+  ["image.nvim"] = {
+    config = { "\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nimage\frequire\0" },
+    loaded = true,
+    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/image.nvim",
+    url = "https://github.com/samodostal/image.nvim"
   },
   ["impatient.nvim"] = {
     loaded = true,
@@ -169,11 +190,6 @@ _G.packer_plugins = {
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  molokai = {
-    loaded = true,
-    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/molokai",
-    url = "https://github.com/tomasr/molokai"
-  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -188,12 +204,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-colorizer.lua"] = {
-    config = { "\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14colorizer\frequire\0" },
-    loaded = true,
-    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
-    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-dap"] = {
     loaded = true,
@@ -251,11 +261,6 @@ _G.packer_plugins = {
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/one_monokai.nvim",
     url = "https://github.com/cpea2506/one_monokai.nvim"
   },
-  ["onedark.nvim"] = {
-    loaded = true,
-    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/onedark.nvim",
-    url = "https://github.com/navarasu/onedark.nvim"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -276,6 +281,11 @@ _G.packer_plugins = {
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
   },
+  ["rest.nvim"] = {
+    loaded = true,
+    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/rest.nvim",
+    url = "https://github.com/rest-nvim/rest.nvim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -285,11 +295,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
-  },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["trouble.nvim"] = {
     loaded = true,
@@ -329,14 +334,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\14colorizer\frequire\0", "config", "nvim-colorizer.lua")
-time([[Config for nvim-colorizer.lua]], false)
 -- Config for: nvim-ts-autotag
 time([[Config for nvim-ts-autotag]], true)
 try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\20nvim-ts-autotag\frequire\0", "config", "nvim-ts-autotag")
 time([[Config for nvim-ts-autotag]], false)
+-- Config for: image.nvim
+time([[Config for image.nvim]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nimage\frequire\0", "config", "image.nvim")
+time([[Config for image.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
