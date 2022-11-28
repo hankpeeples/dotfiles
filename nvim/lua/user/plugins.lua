@@ -59,22 +59,28 @@ return packer.startup(function(use)
 	use({ "lukas-reineke/indent-blankline.nvim" })
 	use({ "goolord/alpha-nvim" })
 
+	-- Cool stuff I've found
+	use({
+		"samodostal/image.nvim",
+		config = function()
+			require("image").setup()
+		end,
+	})
+	use({ "rest-nvim/rest.nvim" })
+	use({ "ellisonleao/glow.nvim" })
+	use({ "feline-nvim/feline.nvim" })
+
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter" })
 	use({ "p00f/nvim-ts-rainbow" }) -- Must be loaded before 'bufferline' and any Colorschemes
 	use({ "akinsho/bufferline.nvim" })
-	use({
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
-	})
+	use({ "uga-rosa/ccc.nvim" })
 
 	-- Colorschemes
-	use({ "folke/tokyonight.nvim" })
+	-- use({ "folke/tokyonight.nvim" })
 	use({ "glepnir/zephyr-nvim" })
-	use({ "tomasr/molokai" })
-	use({ "navarasu/onedark.nvim" })
+	-- use({ "tomasr/molokai" })
+	-- use({ "navarasu/onedark.nvim" })
 	use({ "cpea2506/one_monokai.nvim" })
 	use({ "sainnhe/gruvbox-material" })
 
