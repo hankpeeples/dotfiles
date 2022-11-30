@@ -17,6 +17,20 @@ local one_monokai = {
 	dark_red = "#f75f5f",
 }
 
+local nightfox = {
+	fg = "#c5c7c9",
+	bg = "#253040",
+	green = "#98c379",
+	yellow = "#e5c07b",
+	purple = "#c678dd",
+	orange = "#d19a66",
+	peanut = "#f6d5a4",
+	red = "#e06c75",
+	aqua = "#61afef",
+	darkblue = "#141a23",
+	dark_red = "#f75f5f",
+}
+
 local vi_mode_colors = {
 	NORMAL = "green",
 	OP = "green",
@@ -34,7 +48,7 @@ local c = {
 			name = "vi_mode",
 			opts = {
 				show_mode_name = true,
-				-- padding = "center", -- Uncomment for extra padding.
+				padding = "center", -- Uncomment for extra padding.
 			},
 		},
 		hl = function()
@@ -92,7 +106,7 @@ local c = {
 		provider = {
 			name = "file_info",
 			opts = {
-				type = "relative-short",
+				type = "relative",
 			},
 		},
 		hl = {
@@ -106,10 +120,11 @@ local c = {
 		enabled = true,
 		hl = {
 			fg = "peanut",
-			bg = "bg",
-			style = "bold",
+			bg = "darkblue",
+			-- style = "bold",
 		},
-		right_sep = " ",
+		left_sep = "left_filled",
+		right_sep = "right_filled",
 	},
 	diagnostic_errors = {
 		provider = "diagnostic_errors",
@@ -239,6 +254,6 @@ local components = {
 
 feline.setup({
 	components = components,
-	theme = one_monokai,
+	theme = nightfox,
 	vi_mode_colors = vi_mode_colors,
 })
