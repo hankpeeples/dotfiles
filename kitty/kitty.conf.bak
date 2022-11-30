@@ -2209,6 +2209,5 @@ macos_quit_when_last_window_closed yes
 
 
 # BEGIN_KITTY_THEME
-# Xcodedark
-include current-theme.conf
+include minimal.conf
 # END_KITTY_THEME
