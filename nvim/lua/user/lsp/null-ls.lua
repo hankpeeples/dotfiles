@@ -29,6 +29,15 @@ null_ls.setup({
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
 		diagnostics.flake8,
+		diagnostics.revive.with({
+			args = {
+				"-config",
+				"/Users/hankpeeples/.config/revive/config.toml",
+				"-formatter",
+				"json",
+			},
+		}),
+		-- diagnostics.revive,
 		diagnostics.write_good,
 		formatting.stylelint,
 		diagnostics.jsonlint, -- JSON
