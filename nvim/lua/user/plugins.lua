@@ -69,6 +69,7 @@ return packer.startup(function(use)
 	use({ "rest-nvim/rest.nvim" })
 	use({ "ellisonleao/glow.nvim" })
 	use({ "feline-nvim/feline.nvim" })
+	use({ "eandrju/cellular-automaton.nvim" })
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter" })
@@ -83,6 +84,9 @@ return packer.startup(function(use)
 	-- use({ "navarasu/onedark.nvim" })
 	use({ "cpea2506/one_monokai.nvim" })
 	use({ "sainnhe/gruvbox-material" })
+	use({ "EdenEast/nightfox.nvim" })
+	use({ "rockyzhang24/arctic.nvim", requires = { "rktjmp/lush.nvim" } })
+	use({ "mhartington/oceanic-next" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -112,6 +116,8 @@ return packer.startup(function(use)
 	use({ "folke/trouble.nvim" })
 	use({ "j-hui/fidget.nvim" })
 	use({ "MunifTanjim/prettier.nvim" })
+
+	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
 	-- Golang
 	use({ "crispgm/nvim-go" })
