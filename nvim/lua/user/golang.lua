@@ -3,13 +3,12 @@ require("go").setup({
 	notify = false,
 	-- auto commands
 	auto_format = true,
-	auto_lint = true,
+	auto_lint = false,
 	-- linters: revive, errcheck, staticcheck, golangci-lint
-	linter = "golangci-lint",
-	-- linter_flags: e.g., {revive = {'-config', '/path/to/config.yml'}}
-	linter_flags = {},
+	linter = "revive",
+	linter_flags = { revive = { "-config", "~/.config/revive/config.toml" } },
 	-- lint_prompt_style: qf (quickfix), vt (virtual text)
-	lint_prompt_style = "qf",
+	lint_prompt_style = "vt",
 	-- formatter: goimports, gofmt, gofumpt, lsp
 	formatter = "goimports",
 	-- maintain cursor position after formatting loaded buffer
