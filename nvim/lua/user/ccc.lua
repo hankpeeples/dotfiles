@@ -29,22 +29,18 @@ ccc.setup({
 	preserve = false,
 	---@type boolean
 	save_on_quit = false,
-	---@type show_mode
 	alpha_show = "auto",
-	---@type ColorInput[]
 	inputs = {
 		input.rgb,
 		input.hsl,
 		input.cmyk,
 	},
-	---@type ColorOutput[]
 	outputs = {
 		output.hex,
 		output.hex_short,
 		output.css_rgb,
 		output.css_hsl,
 	},
-	---@type ColorPicker[]
 	pickers = {
 		picker.hex,
 		picker.css_rgb,
