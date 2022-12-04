@@ -16,31 +16,31 @@ local check_backspace = function()
 end
 
 local kind_icons = {
-	Text = "",
-	Method = "",
-	Function = "",
-	Constructor = "",
-	Field = "",
-	Variable = "",
-	Class = "",
-	Interface = "",
-	Module = "",
-	Property = "",
-	Unit = "",
-	Value = "",
-	Enum = "",
-	Keyword = "",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
+	Text = " (Text)",
+	Method = " (Method)",
+	Function = " (Function)",
+	Constructor = " (Constructor)",
+	Field = " (Field)",
+	Variable = " (Variable)",
+	Class = " (Class)",
+	Interface = " (Interface)",
+	Module = " (Module)",
+	Property = " (Property)",
+	Unit = " (Unit)",
+	Value = " (Value)",
+	Enum = " (Enum)",
+	Keyword = " (Keyword)",
+	Snippet = "",
+	Color = " (Color)",
+	File = " (File)",
+	Reference = " (Reference)",
 	Folder = "",
-	EnumMember = "",
-	Constant = "",
-	Struct = "",
-	Event = "",
-	Operator = "",
-	TypeParameter = "",
+	EnumMember = " (EnumMember)",
+	Constant = " (Constant)",
+	Struct = " ﳤ (Struct)",
+	Event = " (Event)",
+	Operator = " (Operator)",
+	TypeParameter = " (TypeParameter)",
 }
 
 cmp.setup({
@@ -93,24 +93,32 @@ cmp.setup({
 		}),
 	}),
 	formatting = {
-		fields = { "kind", "abbr", "menu" },
-		format = function(entry, vim_item)
-			vim_item.kind = kind_icons[vim_item.kind]
-			vim_item.menu = ({
-				nvim_lsp = "",
-				nvim_lua = "",
-				luasnip = "",
-				buffer = "",
-				path = "",
-				emoji = "",
+		format = function(entry, item)
+			item.kind = kind_icons[item.kind]
+			if entry.source.name == "cmp_tabnine" then
+				item.kind = ""
+				if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+					item.kind = " (" .. entry.completion_item.data.detail .. " )"
+				end
+			end
+			item.menu = ({
+				buffer = "[Buffer]",
+				cmp_tabnine = "[T9]",
+				nvim_lsp = "[LSP]",
+				nvim_lua = "[NLUA]",
+				treesitter = "[TS]",
+				path = "[Path]",
+				luasnip = "[Snippet]",
 			})[entry.source.name]
-			return vim_item
+			return item
 		end,
 	},
 	sources = {
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
+		{ name = "cmp_tabnine" },
+		{ name = "treesitter" },
 		{ name = "buffer" },
 		{ name = "path" },
 	},
