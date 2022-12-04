@@ -5,7 +5,7 @@ end
 
 local one_monokai = {
 	fg = "#abb2bf",
-	bg = "#1e2024",
+	bg = "#1a2029",
 	green = "#98c379",
 	yellow = "#e5c07b",
 	purple = "#c678dd",
@@ -31,6 +31,20 @@ local nightfox = {
 	dark_red = "#f75f5f",
 }
 
+local zephyr = {
+	fg = "#c5c7c9",
+	bg = "#232429",
+	green = "#98c379",
+	yellow = "#e5c07b",
+	purple = "#c678dd",
+	orange = "#d19a66",
+	peanut = "#f6d5a4",
+	red = "#e06c75",
+	aqua = "#61afef",
+	darkblue = "#1a1b20",
+	dark_red = "#f75f5f",
+}
+
 local vi_mode_colors = {
 	NORMAL = "green",
 	OP = "green",
@@ -41,6 +55,8 @@ local vi_mode_colors = {
 	REPLACE = "red",
 	COMMAND = "aqua",
 }
+
+local git_blame = require("gitblame")
 
 local c = {
 	vim_mode = {
@@ -99,6 +115,20 @@ local c = {
 		left_sep = "block",
 		right_sep = "right_filled",
 	},
+	gitBlame = {
+		provider = function()
+			if git_blame.is_blame_text_available() then
+				return string.format("Blame: %s", git_blame.get_current_blame_text())
+			else
+				return ""
+			end
+		end,
+		hl = {
+			fg = "fg",
+			style = "bold",
+		},
+		left_sep = "block",
+	},
 	separator = {
 		provider = "",
 	},
@@ -110,10 +140,10 @@ local c = {
 			},
 		},
 		hl = {
-			style = "bold",
+			-- style = "bold",
 		},
-		left_sep = " ",
-		right_sep = " ",
+		left_sep = "block",
+		right_sep = "block",
 	},
 	file_size = {
 		provider = "file_size",
@@ -123,8 +153,8 @@ local c = {
 			bg = "darkblue",
 			-- style = "bold",
 		},
-		left_sep = "left_filled",
-		right_sep = "right_filled",
+		left_sep = "block",
+		right_sep = "block",
 	},
 	diagnostic_errors = {
 		provider = "diagnostic_errors",
@@ -152,7 +182,7 @@ local c = {
 		hl = {
 			fg = "purple",
 			bg = "darkblue",
-			style = "bold",
+			-- style = "bold",
 		},
 		left_sep = "left_filled",
 		right_sep = "block",
@@ -168,7 +198,7 @@ local c = {
 		hl = {
 			fg = "red",
 			bg = "darkblue",
-			style = "bold",
+			-- style = "bold",
 		},
 		left_sep = "block",
 		right_sep = "block",
@@ -218,12 +248,12 @@ local left = {
 	c.gitDiffAdded,
 	c.gitDiffRemoved,
 	c.gitDiffChanged,
+	c.gitBlame,
 	c.separator,
 }
 
 local middle = {
 	c.fileinfo,
-	c.file_size,
 	c.diagnostic_errors,
 	c.diagnostic_warnings,
 	c.diagnostic_info,
@@ -233,9 +263,10 @@ local middle = {
 local right = {
 	c.lsp_client_names,
 	c.file_type,
+	c.file_size,
 	c.file_encoding,
 	c.position,
-	c.line_percentage,
+	-- c.line_percentage,
 	c.scroll_bar,
 }
 
@@ -254,6 +285,6 @@ local components = {
 
 feline.setup({
 	components = components,
-	theme = nightfox,
+	theme = one_monokai,
 	vi_mode_colors = vi_mode_colors,
 })
