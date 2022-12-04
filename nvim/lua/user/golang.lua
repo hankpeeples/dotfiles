@@ -1,6 +1,6 @@
 require("go").setup({
 	-- notify: use nvim-notify
-	notify = false,
+	notify = true,
 	-- auto commands
 	auto_format = true,
 	auto_lint = false,
@@ -20,8 +20,8 @@ require("go").setup({
 	-- show test result with popup window
 	test_popup = true,
 	test_popup_auto_leave = false,
-	test_popup_width = 80,
-	test_popup_height = 10,
+	test_popup_width = 140,
+	test_popup_height = 20,
 	-- test open
 	test_open_cmd = "edit",
 	-- struct tags
