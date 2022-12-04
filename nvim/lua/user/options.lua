@@ -62,3 +62,9 @@ vim.o.foldcolumn = "0" -- '0' is not bad (0 won't show ugly fold numbers)
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
+-- Git-Blame settings
+vim.g.gitblame_enabled = 1
+vim.g.gitblame_message_template = "<summary> • <date> • <author>"
+vim.g.gitblame_date_format = "%r"
+vim.g.gitblame_highlight_group = "Question"
+vim.g.gitblame_display_virtual_text = 0 -- Turn off because blame will show in statusline
