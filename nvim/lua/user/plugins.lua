@@ -58,6 +58,7 @@ return packer.startup(function(use)
 	use({ "lewis6991/impatient.nvim" })
 	use({ "lukas-reineke/indent-blankline.nvim" })
 	use({ "goolord/alpha-nvim" })
+	use({ "ggandor/leap.nvim" })
 
 	-- Cool stuff I've found
 	use({
@@ -67,9 +68,18 @@ return packer.startup(function(use)
 		end,
 	})
 	use({ "rest-nvim/rest.nvim" })
-	use({ "ellisonleao/glow.nvim" })
+	use({ "ellisonleao/glow.nvim" }) -- Markdown preview
 	use({ "feline-nvim/feline.nvim" })
 	use({ "eandrju/cellular-automaton.nvim" })
+
+	-- UI
+	use({
+		"folke/noice.nvim",
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	})
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter" })
@@ -82,6 +92,7 @@ return packer.startup(function(use)
 	use({ "glepnir/zephyr-nvim" })
 	-- use({ "tomasr/molokai" })
 	-- use({ "navarasu/onedark.nvim" })
+	use({ "olimorris/onedarkpro.nvim" })
 	use({ "cpea2506/one_monokai.nvim" })
 	use({ "sainnhe/gruvbox-material" })
 	use({ "EdenEast/nightfox.nvim" })
@@ -95,6 +106,12 @@ return packer.startup(function(use)
 	use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
 	use({ "hrsh7th/cmp-nvim-lsp" })
 	use({ "hrsh7th/cmp-nvim-lua" })
+	-- tabnine AI Assistant
+	use({
+		"tzachar/cmp-tabnine",
+		after = "nvim-cmp",
+		run = "./install.sh",
+	})
 
 	-- snippets
 	use({ "L3MON4D3/LuaSnip" }) --snippet engine
@@ -128,6 +145,7 @@ return packer.startup(function(use)
 	-- Git
 	use({ "lewis6991/gitsigns.nvim" })
 	use({ "airblade/vim-gitgutter" })
+	use({ "f-person/git-blame.nvim" })
 
 	-- DAP
 	use({ "mfussenegger/nvim-dap" })

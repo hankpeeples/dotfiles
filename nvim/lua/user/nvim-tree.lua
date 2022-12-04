@@ -47,7 +47,7 @@ nvim_tree.setup({
 	},
 	filters = {
 		dotfiles = false,
-		-- custom = { ".git" },
+		custom = { ".DS_Store" },
 	},
 	diagnostics = {
 		enable = true,
@@ -69,5 +69,10 @@ nvim_tree.setup({
 				{ key = "v", cb = tree_cb("vsplit") },
 			},
 		},
+	},
+	git = {
+		enable = true,
+		ignore = false,
+		timeout = 500,
 	},
 })
