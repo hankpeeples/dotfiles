@@ -12,24 +12,10 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		-- formatting.prettier.with({
-		-- 	extra_args = {
-		-- 		"--config-precedenece=prefer-file",
-		-- 		"--print-width=110",
-		-- 		"--arrow-parens=always",
-		-- 		"--parser=babel-ts",
-		-- 		"--trailing-comma=es5",
-		-- 		"--prose-wrap=always",
-		-- 		"--jsx-single-quote",
-		-- 		"--single-attribute-per-line=true",
-		-- 		"--bracket-spacing=true",
-		-- 		"--loglevel=debug",
-		-- 	},
-		-- }),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
-		diagnostics.flake8,
-		diagnostics.revive.with({
+		diagnostics.semgrep.with({ extra_args = { "--config", "auto" } }), -- ts, tsx, go, and py static analysis
+		diagnostics.revive.with({ -- Golang linter
 			args = {
 				"-config",
 				"/Users/hankpeeples/.config/revive/config.toml",
