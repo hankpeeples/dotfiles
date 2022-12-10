@@ -69,11 +69,3 @@ vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
 		end
 	end,
 })
-
--- Golang
-vim.cmd([[ 
-  augroup NvimGo
-    autocmd!
-    autocmd User NvimGoLintPopupPost wincmd p
-  augroup END
-]]) -- Show lint pannel without focusing
