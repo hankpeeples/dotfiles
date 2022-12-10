@@ -62,6 +62,27 @@ keymap("n", "<leader>x", ":Prettier<CR>", opts)
 -- NvimTree
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
+-- Golang
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "go" },
+	callback = function()
+		keymap("n", "<leader>gR", "<Plug>(go-run-split)", opts)
+		keymap("n", "<leader>gr", "<Plug>(go-rename)", opts)
+		keymap("n", "<leader>gi", "<Plug>(go-info)", opts)
+		keymap("n", "<leader>gT", "<Plug>(go-test)", opts)
+		keymap("n", "<leader>gl", "<Plug>(go-lint)", opts)
+		keymap("n", "<leader>gv", "<Plug>(go-vet)", opts)
+		keymap("n", "<leader>gD", "<Plug>(go-doc-browser)", opts)
+		keymap("n", "<leader>gd", "<Plug>(go-def)", opts)
+		keymap("n", "<leader>gt", "<Plug>(go-def-type)", opts)
+	end,
+})
+
+-- Rest API runner maps
+keymap("n", "<leader>ps", "<Plug>RestNvim", opts)
+keymap("n", "<leader>pS", "<Plug>RestNvimPreview", opts)
+keymap("n", "<leader>pl", "<Plug>RestNvimLast", opts)
+
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
