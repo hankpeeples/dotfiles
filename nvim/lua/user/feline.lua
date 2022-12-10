@@ -118,14 +118,14 @@ local c = {
 	gitBlame = {
 		provider = function()
 			if git_blame.is_blame_text_available() then
-				return string.format("Blame: %s", git_blame.get_current_blame_text())
+				return string.format("%s", git_blame.get_current_blame_text())
 			else
 				return ""
 			end
 		end,
 		hl = {
 			fg = "fg",
-			style = "bold",
+			-- style = "bold",
 		},
 		left_sep = "block",
 	},
@@ -248,12 +248,13 @@ local left = {
 	c.gitDiffAdded,
 	c.gitDiffRemoved,
 	c.gitDiffChanged,
-	c.gitBlame,
+	-- c.gitBlame,
 	c.separator,
 }
 
 local middle = {
-	c.fileinfo,
+	c.gitBlame,
+	-- c.fileinfo,
 	c.diagnostic_errors,
 	c.diagnostic_warnings,
 	c.diagnostic_info,
@@ -285,6 +286,6 @@ local components = {
 
 feline.setup({
 	components = components,
-	theme = one_monokai,
+	theme = zephyr,
 	vi_mode_colors = vi_mode_colors,
 })
