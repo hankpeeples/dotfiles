@@ -88,16 +88,10 @@ return packer.startup(function(use)
 	use({ "uga-rosa/ccc.nvim" })
 
 	-- Colorschemes
-	-- use({ "folke/tokyonight.nvim" })
 	use({ "glepnir/zephyr-nvim" })
-	-- use({ "tomasr/molokai" })
-	-- use({ "navarasu/onedark.nvim" })
-	use({ "olimorris/onedarkpro.nvim" })
 	use({ "cpea2506/one_monokai.nvim" })
 	use({ "sainnhe/gruvbox-material" })
 	use({ "EdenEast/nightfox.nvim" })
-	use({ "rockyzhang24/arctic.nvim", requires = { "rktjmp/lush.nvim" } })
-	use({ "mhartington/oceanic-next" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -137,7 +131,14 @@ return packer.startup(function(use)
 	use({ "kevinhwang91/nvim-ufo", requires = "kevinhwang91/promise-async" })
 
 	-- Golang
-	use({ "crispgm/nvim-go" })
+	-- use({ "crispgm/nvim-go" })
+	use({
+		"fatih/vim-go",
+		run = ":GoUpdateBinaries",
+		requires = {
+			"junegunn/fzf.vim",
+		},
+	})
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
