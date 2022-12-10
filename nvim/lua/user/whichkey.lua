@@ -39,7 +39,7 @@ local mappings = {
 	},
 
 	g = {
-		name = "Git",
+		name = "Go",
 	},
 
 	d = {

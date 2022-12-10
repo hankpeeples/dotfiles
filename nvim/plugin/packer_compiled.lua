@@ -94,11 +94,6 @@ _G.packer_plugins = {
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/alpha-nvim",
     url = "https://github.com/goolord/alpha-nvim"
   },
-  ["arctic.nvim"] = {
-    loaded = true,
-    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/arctic.nvim",
-    url = "https://github.com/rockyzhang24/arctic.nvim"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -162,6 +157,11 @@ _G.packer_plugins = {
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["fzf.vim"] = {
+    loaded = true,
+    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/fzf.vim",
+    url = "https://github.com/junegunn/fzf.vim"
+  },
   ["git-blame.nvim"] = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
@@ -207,11 +207,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
-  },
-  ["lush.nvim"] = {
-    loaded = true,
-    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/lush.nvim",
-    url = "https://github.com/rktjmp/lush.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -263,11 +258,6 @@ _G.packer_plugins = {
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
-  ["nvim-go"] = {
-    loaded = true,
-    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/nvim-go",
-    url = "https://github.com/crispgm/nvim-go"
-  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -314,20 +304,10 @@ _G.packer_plugins = {
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  ["oceanic-next"] = {
-    loaded = true,
-    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/oceanic-next",
-    url = "https://github.com/mhartington/oceanic-next"
-  },
   ["one_monokai.nvim"] = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/one_monokai.nvim",
     url = "https://github.com/cpea2506/one_monokai.nvim"
-  },
-  ["onedarkpro.nvim"] = {
-    loaded = true,
-    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/onedarkpro.nvim",
-    url = "https://github.com/olimorris/onedarkpro.nvim"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -388,6 +368,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
+  },
+  ["vim-go"] = {
+    loaded = true,
+    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/vim-go",
+    url = "https://github.com/fatih/vim-go"
   },
   ["vim-illuminate"] = {
     loaded = true,
