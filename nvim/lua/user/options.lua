@@ -49,14 +49,6 @@ vim.opt.whichwrap:append("<,>,[,],h,l") -- keys allowed to move to the previous/
 vim.opt.iskeyword:append("-") -- treats words with `-` as single words
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done
 vim.opt.linebreak = true
--- Switch godoc from opening in top window to balloon
-vim.g.go_doc_balloon = 1
--- vimg.go_fmt_autosave = 1
-vim.g.go_mod_fmt_autosave = 1
--- vimg.go_metalinter_autosave = 1
-vim.g.go_test_show_name = 1
-vim.g.go_auto_type_info = 1
-vim.g.go_imports_autosave = 0
 vim.o.foldmethod = "indent"
 vim.o.foldcolumn = "0" -- '0' is not bad (0 won't show ugly fold numbers)
 vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
