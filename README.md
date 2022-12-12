@@ -1,5 +1,8 @@
 # My personal shell configuration
 
+![Start screen](https://github.com/hankpeeples/ShellConfig/blob/master/assets/startScreen.png)
+![Code view](https://github.com/hankpeeples/ShellConfig/blob/master/assets/code.png)
+
 ### Installs
 1. I use `kitty` terminal on macOS.
 2. `zsh`
