@@ -286,6 +286,6 @@ local components = {
 
 feline.setup({
 	components = components,
-	theme = zephyr,
+	theme = nightfox,
 	vi_mode_colors = vi_mode_colors,
 })
