@@ -14,7 +14,7 @@ null_ls.setup({
 	sources = {
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
-		diagnostics.semgrep.with({ extra_args = { "--config", "auto" } }), -- ts, tsx, go, and py static analysis
+		-- diagnostics.semgrep.with({ extra_args = { "--config", "auto" } }), -- ts, tsx, go, and py static analysis
 		diagnostics.revive.with({ -- Golang linter
 			args = {
 				"-config",
