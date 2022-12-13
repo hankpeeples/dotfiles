@@ -379,6 +379,11 @@ _G.packer_plugins = {
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/vim-illuminate",
     url = "https://github.com/RRethy/vim-illuminate"
   },
+  ["vim-wakatime"] = {
+    loaded = true,
+    path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/vim-wakatime",
+    url = "https://github.com/wakatime/vim-wakatime"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/Users/hankpeeples/.local/share/nvim/site/pack/packer/start/which-key.nvim",
