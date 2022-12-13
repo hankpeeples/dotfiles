@@ -156,6 +156,8 @@ return packer.startup(function(use)
 	-- Which Key
 	use({ "folke/which-key.nvim" })
 
+	use({ "wakatime/vim-wakatime" })
+
 	-- Undotree
 	use({ "mbbill/undotree" })
 	-- Automatically set up your configuration after cloning packer.nvim
