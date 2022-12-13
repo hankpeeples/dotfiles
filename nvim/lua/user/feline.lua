@@ -31,9 +31,9 @@ local nightfox = {
 	dark_red = "#f75f5f",
 }
 
-local zephyr = {
+local onedark = {
 	fg = "#c5c7c9",
-	bg = "#232429",
+	bg = "#1b1c1e",
 	green = "#98c379",
 	yellow = "#e5c07b",
 	purple = "#c678dd",
@@ -41,7 +41,7 @@ local zephyr = {
 	peanut = "#f6d5a4",
 	red = "#e06c75",
 	aqua = "#61afef",
-	darkblue = "#1a1b20",
+	darkblue = "#272c35",
 	dark_red = "#f75f5f",
 }
 
@@ -286,6 +286,6 @@ local components = {
 
 feline.setup({
 	components = components,
-	theme = nightfox,
+	theme = onedark,
 	vi_mode_colors = vi_mode_colors,
 })

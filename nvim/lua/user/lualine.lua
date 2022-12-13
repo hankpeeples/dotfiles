@@ -23,6 +23,19 @@ local diff = {
 	-- cond = hide_in_width,
 }
 
+local git_blame = require("gitblame")
+local function blame()
+	if git_blame.is_blame_text_available() then
+		local b = string.format("%s", git_blame.get_current_blame_text())
+		if b == "  Not Committed Yet" then -- there are 2 spaces preceding the not committed string, don't remove
+			return ""
+		end
+		return b
+	else
+		return ""
+	end
+end
+
 local filetype = {
 	"filetype",
 	icons_enabled = true,
@@ -59,14 +72,14 @@ lualine.setup({
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard" },
-		always_divide_middle = true,
+		always_divide_middle = false,
 	},
 	sections = {
 		lualine_a = { "mode" },
 		lualine_b = { "branch", diff },
-		lualine_c = { diagnostics },
-		lualine_x = { { lsp_client, icon = "⚙", color = { fg = "#8588ff" } }, spaces },
-		lualine_y = { "encoding", location, " " },
+		lualine_c = { diagnostics, "%=", blame },
+		lualine_x = { { lsp_client, icon = "", color = { fg = "#8588ff" } }, spaces },
+		lualine_y = { "encoding", location, "  " },
 		lualine_z = { "progress" },
 	},
 })
