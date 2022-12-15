@@ -2,6 +2,7 @@
 
 ![Start screen](https://github.com/hankpeeples/ShellConfig/blob/master/assets/startScreen.png)
 ![Code view](https://github.com/hankpeeples/ShellConfig/blob/master/assets/code.png)
+![Terminal](https://github.com/hankpeeples/ShellConfig/blob/master/assets/terminal.png)
 
 ### Installs
 1. I use `kitty` terminal on macOS.
