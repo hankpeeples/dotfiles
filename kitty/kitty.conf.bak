@@ -182,7 +182,7 @@ modify_font underline_thickness 50%
 #: special keyword: background. Note that if cursor is set to none
 #: then this option is ignored.
 
-cursor_shape underline
+cursor_shape block
 
 #: The cursor shape can be one of block, beam, underline. Note that
 #: when reloading the config this will be changed only if the cursor
@@ -735,7 +735,7 @@ inactive_text_alpha 1
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-# hide_window_decorations titlebar-only
+hide_window_decorations titlebar-only
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only can be used to only hide the titlebar.
@@ -991,28 +991,28 @@ background_opacity 1
 #: this option when reloading the config will only work if
 #: dynamic_background_opacity was enabled in the original config.
 
-# background_image none
+background_image /Users/hankpeeples/Pictures/blackSand.png
 
 #: Path to a background image. Must be in PNG format.
 
-# background_image_layout tiled
+background_image_layout scaled
 
 #: Whether to tile, scale or clamp the background image. The value can
 #: be one of tiled, mirror-tiled, scaled, clamped or centered.
 
-# background_image_linear no
+background_image_linear yes
 
 #: When background image is scaled, whether linear interpolation
 #: should be used.
 
-# dynamic_background_opacity no
+# dynamic_background_opacity yes
 
 #: Allow changing of the background_opacity dynamically, using either
 #: keyboard shortcuts (increase_background_opacity and
 #: decrease_background_opacity) or the remote control facility.
 #: Changing this option by reloading the config is not supported.
 
-# background_tint 0.0
+background_tint 0.6
 
 #: How much to tint the background image by the background color.
 #: This option makes it easier to read the text. Tinting is done using
@@ -2219,6 +2219,6 @@ macos_quit_when_last_window_closed yes
 
 
 # BEGIN_KITTY_THEME
-# Cobalt2
+# Wild Cherry
 include current-theme.conf
 # END_KITTY_THEME
