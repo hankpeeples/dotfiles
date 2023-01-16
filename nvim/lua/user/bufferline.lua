@@ -33,7 +33,7 @@ bufferline.setup({
 				},
 				{
 					name = "CSS",
-					priority = 3, -- determines where it will appear relative to other groups (Optional)
+					priority = 5, -- determines where it will appear relative to other groups (Optional)
 					matcher = function(buf) -- Mandatory
 						return buf.filename:match("%.css")
 					end,
@@ -46,16 +46,30 @@ bufferline.setup({
 					end,
 				},
 				{
-					name = "TSX",
+					name = "TS",
 					priority = 2, -- determines where it will appear relative to other groups (Optional)
 					matcher = function(buf) -- Mandatory
 						return buf.filename:match("%.tsx")
 					end,
 				},
 				{
+					{
+						name = "TS",
+						priority = 3, -- determines where it will appear relative to other groups (Optional)
+						matcher = function(buf) -- Mandatory
+							return buf.filename:match("%.ts")
+						end,
+					},
+					name = "JS",
+					priority = 4, -- determines where it will appear relative to other groups (Optional)
+					matcher = function(buf) -- Mandatory
+						return buf.filename:match("%.js")
+					end,
+				},
+				{
 					name = "Docs",
 					-- highlight = { underline = true, sp = "#2eda2e" },
-					priority = 5,
+					priority = 6,
 					auto_close = true, -- whether or not close this group if it doesn't contain the current buffer
 					matcher = function(buf)
 						return buf.filename:match("%.md") or buf.filename:match("%.txt")
