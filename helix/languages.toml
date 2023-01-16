@@ -1,0 +1,7 @@
+[[language]]
+name = "rust"
+diagnostic-severity = "Hint" # display ALL diagnostics
+
+[[language]]
+name = "go"
+diagnostic-severity = "Hint"

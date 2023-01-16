@@ -1,0 +1,48 @@
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+mouse = true
+cursorline = true
+true-color = true
+bufferline = "always"
+color-modes = true # colorize mode
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false # show hidden files
+
+[editor.statusline]
+left = ["mode", "spinner", "file-line-ending", "file-encoding"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-type", "position-percentage"]
+separator = "│"
+
+[editor.lsp]
+display-messages = true
+
+[editor.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+
+[editor.indent-guides]
+render = true
+character = "▏" # Some characters that work well: "▏", "┆", "┊", "⸽"
+skip-levels = 1
+
+[keys.normal]
+C-j = "move_line_up"
+C-k = "move_line_down"
+g = { a = "code_action" }
+d = "delete_selection_noyank" 
+
+[keys.insert]
+k = { j = "normal_mode" }
