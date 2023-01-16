@@ -8,7 +8,6 @@ local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 
--- https://github.com/prettier-solidity/prettier-plugin-solidity
 null_ls.setup({
 	debug = false,
 	sources = {
@@ -23,7 +22,9 @@ null_ls.setup({
 				"json",
 			},
 		}),
-		-- diagnostics.revive,
+		formatting.rustfmt, -- Rust formatter
+		formatting.rustywind, -- Tailwind css formatter
+		diagnostics.checkmake,
 		diagnostics.write_good,
 		formatting.stylelint,
 		diagnostics.jsonlint, -- JSON
