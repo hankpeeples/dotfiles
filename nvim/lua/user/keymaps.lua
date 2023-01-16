@@ -47,8 +47,8 @@ keymap("v", "p", '"_dP', opts)
 
 -- Insert --
 -- Press ii fast to enter
-keymap("i", "ii", "<ESC>", opts)
-keymap("v", "ii", "<ESC>", opts)
+keymap("i", "kj", "<ESC>", opts)
+keymap("v", "kj", "<ESC>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -121,3 +121,11 @@ vim.cmd([[
   vnoremap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
   vnoremap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
 ]])
+
+-- keymap("n", "<S-k>", "<cmd>lua require'rust-tools'.hover_actions.hover_actions()<cr>", opts)
+-- keymap("n", "<leader>ra", "<cmd>lua require'rust-tools'.code_action_group.code_action_group()<cr>", opts)
+-- keymap("n", "<leader>rr", "<cmd>lua require'rust-tools'.runnables.runnables()<cr>", opts)
+-- keymap("n", "<leader>rc", "<cmd>lua require'rust-tools'.open_cargo_toml.open_cargo_toml()<cr>", opts)
+-- keymap("n", "<leader>rp", "<cmd>lua require'rust-tools'.parent_module.parent_module()<cr>", opts)
+-- keymap("n", "<leader>ro", "<cmd>lua require'rust-tools'.inlay_hints.enable()<cr>", opts)
+-- keymap("n", "<leader>rO", "<cmd>lua require'rust-tools'.inlay_hints.disable()<cr>", opts)

@@ -72,6 +72,8 @@ return packer.startup(function(use)
 	use({ "feline-nvim/feline.nvim" })
 	use({ "eandrju/cellular-automaton.nvim" })
 
+	use({ "folke/lazy.nvim" })
+
 	-- UI
 	use({
 		"folke/noice.nvim",
@@ -88,10 +90,11 @@ return packer.startup(function(use)
 	use({ "uga-rosa/ccc.nvim" })
 
 	-- Colorschemes
-	use({ "glepnir/zephyr-nvim" })
 	use({ "cpea2506/one_monokai.nvim" })
-	use({ "sainnhe/gruvbox-material" })
-	use({ "EdenEast/nightfox.nvim" })
+	-- use({ "EdenEast/nightfox.nvim" })
+	use({ "sainnhe/sonokai" })
+	use({ "navarasu/onedark.nvim" })
+	-- use({ "catppuccin/nvim", as = "catppuccin" })
 
 	-- cmp plugins
 	use({ "hrsh7th/nvim-cmp" }) -- The completion plugin
@@ -139,6 +142,9 @@ return packer.startup(function(use)
 			"junegunn/fzf.vim",
 		},
 	})
+
+	-- Rust
+	use({ "simrat39/rust-tools.nvim" })
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
