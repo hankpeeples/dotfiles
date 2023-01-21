@@ -51,6 +51,14 @@ local plugins = {
 			"rcarriga/nvim-notify",
 		},
 	},
+	-- {
+	-- 	"utilyre/barbecue.nvim",
+	-- 	dependencies = {
+	-- 		"neovim/nvim-lspconfig",
+	-- 		"SmiteshP/nvim-navic",
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 	},
+	-- },
 
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter" },
@@ -59,11 +67,9 @@ local plugins = {
 	{ "uga-rosa/ccc.nvim" },
 
 	-- Colorschemes
-	{ "cpea2506/one_monokai.nvim" },
-	-- { "EdenEast/nightfox.nvim" },
 	{ "sainnhe/sonokai" },
-	{ "navarasu/onedark.nvim" },
-	-- { "catppuccin/nvim", as = "catppuccin" },
+	{ "sainnhe/gruvbox-material" },
+	{ "rebelot/kanagawa.nvim" },
 
 	-- cmp plugins
 	{ "hrsh7th/nvim-cmp" }, -- The completion plugin
@@ -112,6 +118,7 @@ local plugins = {
 
 	-- Rust
 	{ "simrat39/rust-tools.nvim" },
+	{ "rust-lang/rust.vim" },
 
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim" },
