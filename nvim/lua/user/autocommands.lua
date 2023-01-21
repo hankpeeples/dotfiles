@@ -52,9 +52,9 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 })
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	pattern = { "*.java" },
+	pattern = { "*.ts", "*.js", "*.tsx", ".jsx", "*.json" },
 	callback = function()
-		vim.lsp.codelens.refresh()
+		vim.cmd("Prettier")
 	end,
 })
 
