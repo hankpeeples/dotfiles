@@ -970,7 +970,7 @@ tab_activity_symbol "⌬ "
 
 #: The foreground and background colors.
 
-background_opacity 1
+background_opacity 0.97
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -991,7 +991,7 @@ background_opacity 1
 #: this option when reloading the config will only work if
 #: dynamic_background_opacity was enabled in the original config.
 
-background_image /Users/hankpeeples/Pictures/blackSand.png
+# background_image /Users/hankpeeples/Pictures/blackDots.png
 
 #: Path to a background image. Must be in PNG format.
 
@@ -1012,7 +1012,7 @@ background_image_linear yes
 #: decrease_background_opacity) or the remote control facility.
 #: Changing this option by reloading the config is not supported.
 
-background_tint 0.6
+background_tint 0.75
 
 #: How much to tint the background image by the background color.
 #: This option makes it easier to read the text. Tinting is done using
@@ -2219,6 +2219,6 @@ macos_quit_when_last_window_closed yes
 
 
 # BEGIN_KITTY_THEME
-# Wild Cherry
+# Molokai
 include current-theme.conf
 # END_KITTY_THEME
