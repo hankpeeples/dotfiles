@@ -46,8 +46,7 @@ prettier.setup({
 		single_quote = true,
 		tab_width = 2,
 		trailing_comma = "es5",
-		use_tabs = false,
 		vue_indent_script_and_style = false,
-		config_precedence = "prefer-file", -- or "cli-override" or "file-override"
+		config_precedence = "file-override", -- or "cli-override" or "file-override"
 	},
 })
