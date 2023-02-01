@@ -1,7 +1,24 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-format = "$all"
-right_format = "$cmd_duration"
+# A minimal left prompt
+# format = """
+# $all\
+# $fill\
+# $time\
+# $line_break\
+# $character
+# """
+format = """$directory$character"""
+# move the rest of the prompt to the right
+right_format = """$all"""
+
+[time]
+disabled = true
+style = "bold bright-black"
+format = "[$time]($style)"
+
+[line_break]
+disabled = true
 
 command_timeout = 20000
 
@@ -15,17 +32,39 @@ symbol = "-"
 style = "dimmed #2f2f2f"
 
 [character]
-success_symbol = "[➤](bold green)"
+# success_symbol = "[➤](bold green)"
+success_symbol = "[➜](bold green)"
 error_symbol = "[✖](bold red)"
+
+[battery]
+full_symbol = "🔋"
+charging_symbol = "🔌"
+discharging_symbol = "⚡"
+
+[[battery.display]]
+threshold = 30
+style = "bold red"
+
+[memory_usage]
+threshold = 60
+disabled = true
+symbol = " "
+
+[hostname]
+ssh_only = true
+format = "<[$hostname]($style)>"
+trim_at = "-"
+style = "bold dimmed white"
+disabled = false
 
 [aws]
 disabled = true
-symbol = "  "
+symbol = ""
 
 [directory]
 read_only = " "
-home_symbol = "🏠"
-truncate_to_repo = false
+home_symbol = "~"
+truncate_to_repo = true
 truncation_length = 3
 truncation_symbol = "⇐ "
 format = "[$path]($style)[$lock_symbol]($lock_style) "
@@ -39,7 +78,7 @@ staged = ' [++\($count\)](green) '
 ahead = " ⇡${count}(red) "
 diverged = " ⇕⇡${ahead_count}⇣${behind_count}(bold red) "
 behind = " ⇣${count}(red) "
-modified = " ~${count}(yellow) "
+modified = "~${count}(yellow)"
 
 [git_metrics]
 disabled = false
@@ -89,13 +128,6 @@ symbol = " "
 [lua]
 symbol = " "
 
-[memory_usage]
-symbol = " "
-disabled = true
-threshold = -1
-style = "dimmed white"
-format = "$symbol[${ram}]($style) "
-
 [meson]
 symbol = "喝 "
 
@@ -110,6 +142,8 @@ symbol = " "
 
 [package]
 symbol = " "
+display_private = true
+format = "[$symbol$version]($style) "
 
 [python]
 symbol = " "
