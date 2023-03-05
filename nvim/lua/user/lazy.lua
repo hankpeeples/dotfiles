@@ -18,7 +18,7 @@ local plugins = {
 	{ "windwp/nvim-autopairs" }, -- Autopairs, integrates with both cmp and treesitter
 	{ "numToStr/Comment.nvim" },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
-	{ "kyazdani42/nvim-web-devicons" },
+	{ "nvim-tree/nvim-web-devicons" },
 	{ "kyazdani42/nvim-tree.lua" },
 	{ "moll/vim-bbye" },
 	{ "nvim-lualine/lualine.nvim" },
@@ -74,6 +74,7 @@ local plugins = {
 		priority = 1000, -- Ensure it loads first
 	},
 	{ "EdenEast/nightfox.nvim" },
+	{ "kaiuri/nvim-juliana", priority = 1000 },
 
 	-- cmp plugins
 	{ "hrsh7th/nvim-cmp" }, -- The completion plugin
@@ -82,11 +83,11 @@ local plugins = {
 	{ "saadparwaiz1/cmp_luasnip" }, -- snippet completions
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-nvim-lua" },
-	{
-		"glepnir/lspsaga.nvim",
-		event = "BufRead",
-		dependencies = { { "nvim-tree/nvim-web-devicons" } },
-	},
+	-- {
+	-- 	"glepnir/lspsaga.nvim",
+	-- 	event = "BufRead",
+	-- 	dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	-- },
 	-- tabnine AI Assistant
 	{
 		"tzachar/cmp-tabnine", -- Make sure to run `./install.sh` from `~/.local/share/nvim/lazy/cmp-tabnine`

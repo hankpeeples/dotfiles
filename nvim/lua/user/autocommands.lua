@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd({ "VimEnter " }, {
 vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_1' . tabpagenr() | quit | endif")
 
 vim.cmd("autocmd BufEnter *.go,*.rs,*.cpp,*.c setlocal shiftwidth=4 tabstop=4")
-vim.cmd("autocmd BufEnter ?akefile* setlocal shiftwidth=2 tabstop=2 | endif") -- For any Makefile, set indent to 2
+vim.cmd("autocmd BufEnter ?akefile* setlocal shiftwidth=2 tabstop=2") -- For any Makefile, set indent to 2
 
 vim.cmd("autocmd InsertEnter * if bufname() != 'NvimTree_1' | set relativenumber | endif")
 vim.cmd("autocmd InsertLeave * if bufname() != 'NvimTree_1' | set norelativenumber | endif")
