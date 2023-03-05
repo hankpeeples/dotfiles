@@ -7,9 +7,9 @@
 #: characters.
 
 # font_family      Iosevka Nerd Font Mono Regular
-# bold_font        Iosevka Nerd Font Mono Semibold
-# italic_font      Iosevka Nerd Font Mono Italic
-# bold_italic_font Iosevka Nerd Font Mono Semibold Italic
+# bold_font        Iosevka Nerd Font Mono Bold
+# italic_font      Iosevka Nerd Font Mono Light Italic
+# bold_italic_font Iosevka Nerd Font Mono Bold Italic
 
 # font_family      SauceCodePro Nerd Font Mono Regular
 # bold_font        SauceCodePro Nerd Font Mono Semibold
@@ -20,6 +20,11 @@
 # bold_font          SpaceMono Nerd Font Mono Bold
 # italic_font        SpaceMono Nerd Font Mono Italic
 # bold_italic_font   SpaceMono Nerd Font Mono Bold Italic
+
+# font_family       JetBrainsMonoNLNerdFontCompleteM-Regular
+# bold_font         JetBrainsMonoNLNerdFontCompleteM-Bold
+# italic_font       JetBrainsMonoNLNerdFontCompleteM-LightItalic
+# bold_italic_font  JetBrainsMonoNLNerdFontCompleteM-BoldItalic
 
 font_family       FantasqueSansMono Nerd Font Mono Regular
 italic_font       FantasqueSansMono Nerd Font Mono Italic
@@ -44,7 +49,7 @@ bold_italic_font  FantasqueSansMono Nerd Font Mono Bold Italic
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 12.0
+font_size 13.0
 
 #: Font size (in pts)
 
@@ -735,7 +740,7 @@ inactive_text_alpha 1
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-hide_window_decorations titlebar-only
+# hide_window_decorations titlebar-only
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only can be used to only hide the titlebar.
@@ -970,7 +975,7 @@ tab_activity_symbol "⌬ "
 
 #: The foreground and background colors.
 
-background_opacity 0.97
+background_opacity 1
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -991,7 +996,7 @@ background_opacity 0.97
 #: this option when reloading the config will only work if
 #: dynamic_background_opacity was enabled in the original config.
 
-# background_image /Users/hankpeeples/Pictures/blackDots.png
+background_image /Users/hankpeeples/Pictures/blackSand.png
 
 #: Path to a background image. Must be in PNG format.
 
@@ -1012,7 +1017,7 @@ background_image_linear yes
 #: decrease_background_opacity) or the remote control facility.
 #: Changing this option by reloading the config is not supported.
 
-background_tint 0.75
+background_tint 0.90
 
 #: How much to tint the background image by the background color.
 #: This option makes it easier to read the text. Tinting is done using
@@ -2219,6 +2224,6 @@ macos_quit_when_last_window_closed yes
 
 
 # BEGIN_KITTY_THEME
-# Molokai
+# zenwritten_dark
 include current-theme.conf
 # END_KITTY_THEME
