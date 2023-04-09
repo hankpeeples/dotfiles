@@ -1,16 +1,17 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # A minimal left prompt
-# format = """
-# $all\
-# $fill\
-# $time\
-# $line_break\
-# $character
-# """
-format = """$directory$character"""
+format = """
+$all\
+$fill\
+$time\
+$line_break\
+$character
+"""
+
+# format = """$directory$character"""
 # move the rest of the prompt to the right
-right_format = """$all"""
+# right_format = """$all"""
 
 [time]
 disabled = true
@@ -18,7 +19,7 @@ style = "bold bright-black"
 format = "[$time]($style)"
 
 [line_break]
-disabled = true
+disabled = false
 
 command_timeout = 20000
 
