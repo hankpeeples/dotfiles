@@ -1,89 +1,105 @@
-"$schema" = 'https://starship.rs/config-schema.json'
+"$schema" = 'https://www.starship.rs/config-schema.json'
 
-# A minimal left prompt
 format = """
-$all\
-$fill\
-$time\
-$line_break\
-$character
-"""
+$hostname\
+$shlvl\
+$kubernetes\
+${custom.dir}\
+${custom.home_dir}\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$custom\
+$cmd_duration\
+$lua\
+$jobs\
+$status\
+$character"""
 
-# format = """$directory$character"""
-# move the rest of the prompt to the right
-# right_format = """$all"""
+scan_timeout = 10
 
-[time]
-disabled = true
-style = "bold bright-black"
-format = "[$time]($style)"
-
-[line_break]
-disabled = false
-
-command_timeout = 20000
-
-[jobs]
-disabled = true
-symbol_threshold = 0
-number_threshold = 0
-
-[fill]
-symbol = "-"
-style = "dimmed #2f2f2f"
-
-[character]
-# success_symbol = "[➤](bold green)"
-success_symbol = "[➜](bold green)"
-error_symbol = "[✖](bold red)"
+add_newline = true
 
 [battery]
-full_symbol = "🔋"
-charging_symbol = "🔌"
-discharging_symbol = "⚡"
-
-[[battery.display]]
-threshold = 30
-style = "bold red"
-
-[memory_usage]
-threshold = 60
 disabled = true
-symbol = " "
 
-[hostname]
-ssh_only = true
-format = "<[$hostname]($style)>"
-trim_at = "-"
-style = "bold dimmed white"
-disabled = false
-
-[aws]
-disabled = true
-symbol = ""
+[character]
+success_symbol = "[❯](#f5e0dc)[❯](#cba6f7)[❯](#fab387)"
+error_symbol = "[❯❯❯](#f38ba8)"
 
 [directory]
-read_only = " "
-home_symbol = "~"
-truncate_to_repo = true
 truncation_length = 3
-truncation_symbol = "⇐ "
-format = "[$path]($style)[$lock_symbol]($lock_style) "
+format = "[ $path ]($style)[$read_only]($read_only_style) "
+style = "fg:#ffffff bg:#11111b bold"
+read_only = "  "
+read_only_style = "fg:black bg:red"
 
-[git_state]
-disabled = false
-format = '($state( $progress_current of $progress_total)) '
+[git_branch]
+format = "[$symbol$branch]($style) "
 
 [git_status]
-staged = ' [++\($count\)](green) '
-ahead = " ⇡${count}(red) "
-diverged = " ⇕⇡${ahead_count}⇣${behind_count}(bold red) "
-behind = " ⇣${count}(red) "
-modified = "~${count}(yellow)"
+conflicted = "[ ](white)=[$count](bright-white bold)[ ](white)"
+ahead = "[ ](white)⇡[$count](bright-white bold)[ ](white)"
+behind = "[ ](white)⇣[$count](bright-white bold)[ ](white)"
+diverged = "[ ](white)⇕⇡[$ahead_count](bright-white bold)⇣[$behind_count](bright-white)[ ](white)"
+untracked = "[ ](white)?[$count](bright-white bold)[ ](white)"
+stashed = "[ ](white)$[$count](bright-white bold)[ ](white)"
+modified = "[ ](white)![$count](bright-white bold)[ ](white)"
+staged = "[ ](white)+[$count](bright-white bold)[ ](white)"
+renamed = "[ ](white)»[$count](bright-white bold)[ ](white)"
+deleted = "[ ](white)✗[$count](bright-white bold)[ ](white)"
 
-[git_metrics]
-disabled = false
-format = "([+$added](dimmed green) )([-$deleted](dimmed red) )"
+[custom.home_dir]
+command = "echo  "
+when = '[ "$PWD" == "$HOME" ]'
+shell = ["bash","--norc","--noprofile"]
+style = "fg:#11111b bg:#fab387"
+format = "[ $output ]($style)"
+
+[custom.dir]
+command = "echo  "
+when = '[ "$PWD" != "$HOME" ]'
+shell = ["bash","--norc","--noprofile"]
+style = "fg:#11111b bg:#fab387"
+format = "[ $output ]($style)"
+
+[hostname]
+disabled = true
 
 [buf]
 symbol = " "
@@ -105,11 +121,6 @@ symbol = " "
 
 [elm]
 symbol = " "
-
-[git_branch]
-always_show_remote = false
-symbol = " "
-format = "on [$symbol$branch(:$remote_branch)](italic yellow) "
 
 [golang]
 symbol = " "
