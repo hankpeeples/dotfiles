@@ -30,15 +30,15 @@ local plugins = {
 	{ "ggandor/leap.nvim" },
 
 	-- Cool stuff I've found
-	{
-		"samodostal/image.nvim",
-		config = function()
-			require("image").setup()
-		end,
-	},
+	-- {
+	-- 	"samodostal/image.nvim",
+	-- 	config = function()
+	-- 		require("image").setup()
+	-- 	end,
+	-- },
 	{ "rest-nvim/rest.nvim" },
 	{ "ellisonleao/glow.nvim" }, -- Markdown preview
-	{ "feline-nvim/feline.nvim" },
+	-- { "feline-nvim/feline.nvim" },
 	{ "eandrju/cellular-automaton.nvim" },
 
 	{ "folke/lazy.nvim" },
@@ -63,7 +63,7 @@ local plugins = {
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter" },
 	{ "p00f/nvim-ts-rainbow" }, -- Must be loaded before 'bufferline' and any Colorschemes
-	{ "akinsho/bufferline.nvim" },
+	{ "akinsho/bufferline.nvim", version = "^3.*", dependencies = "nvim-tree/nvim-web-devicons" },
 	{ "uga-rosa/ccc.nvim" },
 
 	-- Colorschemes
@@ -104,7 +104,7 @@ local plugins = {
 	},
 
 	-- LSP
-	-- use { "williamboman/nvim-lsp-installer"  } -- simple to use language server installer
+	{ "williamboman/nvim-lsp-installer" }, -- simple to use language server installer
 	{ "neovim/nvim-lspconfig" }, -- enable LSP
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
