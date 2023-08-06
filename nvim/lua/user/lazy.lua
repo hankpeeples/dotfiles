@@ -73,6 +73,8 @@ local plugins = {
   -- Colorschemes
   { "sainnhe/sonokai" },
   { "folke/tokyonight.nvim" },
+  { 'sainnhe/gruvbox-material' },
+
   {
     "catppuccin/nvim",
     name = "catppuccin"
