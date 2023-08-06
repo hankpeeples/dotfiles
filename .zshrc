@@ -101,36 +101,46 @@ export EDITOR='nvim'
 # export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs, plugins, and themes.
+alias archFlags="arch -x86_64" # Needed for `brew` installs
+
 alias nvim='nvim -u ~/.config/nvim/init.lua'
 alias nvimw='nvim -u ~/.config/nvim/initWeak.lua'
-alias archFlags="arch -x86_64" # Needed for `brew` installs
 alias zshconfig="nvim ~/.zshrc"
 alias nvc="nvim ~/.config/nvim" # Open neovim config
+alias starshipconfig="nvim ~/.config/starship.toml" # Open starship config
+alias alacrittyConfig="nvim ~/.config/alacritty/alacritty.yml"
+alias kittyconf="nvim ~/.config/kitty/kitty.conf"
+
 alias untssh="ssh hgp0019@cell03-cse.eng.unt.edu"
+
 alias cdunt="cd ~/Desktop/UNT"
+alias cdg="cd ~/go/src/github.com/hankpeeples"
+alias cdr="cd ~/Documents/Rust"
+alias cdrn="cd ~/Documents/React_Native"
+
 alias l="exa --long --header --git --no-permissions --no-user --all --grid --icons"
 alias ll="exa --long --no-user --git --all --icons"
-alias cdg="cd ~/go/src/github.com/hankpeeples"
+
 alias refresh="source ~/.zshrc" # Refresh terminal without having to close it.
+
 alias start_psql="/Applications/Postgres.app/Contents/Versions/14/bin/psql -p 5432" # Start postgres server
-alias starshipconfig="nvim ~/.config/starship.toml" # Open starship config
 alias bathelp="bat --plain --language=help" # `bat` is a better `cat`
 alias deploy="yarn build && firebase deploy --only hosting:henrypeeples" # For deploying personal website
 alias findFile="find / -type f -iname" # Easier command to search system for a file name
 alias lg="lazygit" # Open lazygit terminal gui
 alias dockerOpen="open /Applications/Docker.app" # start docker desktop from terminal
-alias alacrittyConfig="nvim ~/.config/alacritty/alacritty.yml"
-alias kittyconf="nvim ~/.config/kitty/kitty.conf"
+alias icat="kitty +kitten icat"
+alias tree="tree -C -a -I '.git|.github|.yarn|.DS_Store|node_modules'"
 
 help() {
     "$@" --help 2>&1 | bathelp
 }
 
 if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-    autoload -Uz compinit
-    compinit
+  autoload -Uz compinit
+  compinit
 fi
 
 eval "$(starship init zsh)"
@@ -151,3 +161,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 export PNPM_HOME="/Users/hankpeeples/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+

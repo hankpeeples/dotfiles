@@ -21,15 +21,15 @@
 # italic_font        SpaceMono Nerd Font Mono Italic
 # bold_italic_font   SpaceMono Nerd Font Mono Bold Italic
 
-# font_family       JetBrainsMonoNLNerdFontCompleteM-Regular
-# bold_font         JetBrainsMonoNLNerdFontCompleteM-Bold
-# italic_font       JetBrainsMonoNLNerdFontCompleteM-LightItalic
-# bold_italic_font  JetBrainsMonoNLNerdFontCompleteM-BoldItalic
+font_family       JetBrainsMonoNLNerdFontCompleteM-Regular
+bold_font         JetBrainsMonoNLNerdFontCompleteM-Bold
+italic_font       JetBrainsMonoNLNerdFontCompleteM-LightItalic
+bold_italic_font  JetBrainsMonoNLNerdFontCompleteM-BoldItalic
 
-font_family       FantasqueSansMono Nerd Font Mono Regular
-italic_font       FantasqueSansMono Nerd Font Mono Italic
-bold_font         FantasqueSansMono Nerd Font Mono Bold
-bold_italic_font  FantasqueSansMono Nerd Font Mono Bold Italic
+# font_family       FantasqueSansMono Nerd Font Mono Regular
+# italic_font       FantasqueSansMono Nerd Font Mono Italic
+# bold_font         FantasqueSansMono Nerd Font Mono Bold
+# bold_italic_font  FantasqueSansMono Nerd Font Mono Bold Italic
 
 # font_family         CaskaydiaCove Nerd Font Mono Regular
 # bold_font           CaskaydiaCove Nerd Font Mono Bold
@@ -49,7 +49,7 @@ bold_italic_font  FantasqueSansMono Nerd Font Mono Bold Italic
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 13.0
+font_size 12.0
 
 #: Font size (in pts)
 
@@ -740,9 +740,9 @@ inactive_text_alpha 1
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-# hide_window_decorations titlebar-only
+hide_window_decorations titlebar-only
 
-#: Hide the window decorations (title-bar and window borders) with
+#: Hide the window ations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only can be used to only hide the titlebar.
 #: Whether this works and exactly what effect it has depends on the
 #: window manager/operating system. Note that the effects of changing
@@ -1389,7 +1389,7 @@ shell_integration no-cursor
 # wayland_titlebar_color system
 
 #: The color of the kitty window's titlebar on Wayland systems with
-#: client side window decorations such as GNOME. A value of system
+#: client side window ations such as GNOME. A value of system
 #: means to use the default system color, a value of background means
 #: to use the background color of the currently active window and
 #: finally you can use an arbitrary color, such as #12af59 or red.
@@ -1406,7 +1406,7 @@ shell_integration no-cursor
 #: It sets the background color of the entire window and makes the
 #: titlebar transparent. As such it is incompatible with
 #: background_opacity. If you want to use both, you are probably
-#: better off just hiding the titlebar with hide_window_decorations.
+#: better off just hiding the titlebar with hide_window_ations.
 
 # macos_option_as_alt no
 
@@ -1507,7 +1507,7 @@ macos_quit_when_last_window_closed yes
 #: <https://sw.kovidgoyal.net/kitty/keyboard-protocol/#functional>.
 #: For modifier keys, the names are ctrl (control, ⌃), shift (⇧), alt
 #: (opt, option, ⌥), super (cmd, command, ⌘). See also: GLFW mods
-#: <https://www.glfw.org/docs/latest/group__mods.html>
+#: <https://www.glfw.org/docs/latest.html>
 
 #: On Linux you can also use XKB key names to bind keys that are not
 #: supported by GLFW. See XKB keys
@@ -2224,6 +2224,6 @@ macos_quit_when_last_window_closed yes
 
 
 # BEGIN_KITTY_THEME
-# Bluloco Dark
+# Ayu
 include current-theme.conf
 # END_KITTY_THEME

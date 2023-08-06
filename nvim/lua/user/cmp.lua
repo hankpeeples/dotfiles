@@ -10,20 +10,20 @@ end
 
 require("luasnip/loaders/from_vscode").lazy_load()
 
-local tn = require("cmp_tabnine.config")
-tn:setup({
-	max_lines = 1000,
-	max_num_results = 5,
-	sort = true,
-	run_on_every_keystroke = true,
-	-- snippet_placeholder = '..',
-	ignored_file_types = {
-		-- default is not to ignore
-		-- uncomment to ignore in lua:
-		-- lua = true
-	},
-	-- show_prediction_strength = true
-})
+-- local tn = require("cmp_tabnine.config")
+-- tn:setup({
+-- 	max_lines = 1000,
+-- 	max_num_results = 5,
+-- 	sort = true,
+-- 	run_on_every_keystroke = true,
+-- 	-- snippet_placeholder = '..',
+-- 	ignored_file_types = {
+-- 		-- default is not to ignore
+-- 		-- uncomment to ignore in lua:
+-- 		-- lua = true
+-- 	},
+-- 	-- show_prediction_strength = true
+-- })
 
 local check_backspace = function()
 	local col = vim.fn.col(".") - 1
@@ -132,7 +132,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "luasnip" },
-		{ name = "cmp_tabnine" },
+		-- { name = "cmp_tabnine" },
 		{ name = "treesitter" },
 		{ name = "buffer" },
 		{ name = "path" },
