@@ -286,6 +286,6 @@ local components = {
 
 feline.setup({
 	components = components,
-	theme = onedark,
+	theme = one_monokai,
 	vi_mode_colors = vi_mode_colors,
 })
