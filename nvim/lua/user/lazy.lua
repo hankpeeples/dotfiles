@@ -13,33 +13,43 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	-- My plugins here
-	{ "wbthomason/packer.nvim" }, -- Have packer manage itself
+	-- { "wbthomason/packer.nvim" }, -- Have packer manage itself
 	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used by lots of plugins
-	{ "windwp/nvim-autopairs" }, -- Autopairs, integrates with both cmp and treesitter
-	{ "numToStr/Comment.nvim" },
+	{ "windwp/nvim-autopairs", lazy = true }, -- Autopairs, integrates with both cmp and treesitter
+	{ "numToStr/Comment.nvim", lazy = true },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 	{ "nvim-tree/nvim-web-devicons" },
-	{ "kyazdani42/nvim-tree.lua" },
-	{ "moll/vim-bbye" },
-	{ "nvim-lualine/lualine.nvim" },
-	{ "akinsho/toggleterm.nvim" },
-	{ "ahmedkhalf/project.nvim" },
+	-- { "kyazdani42/nvim-tree.lua", lazy = true },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+},
+	{ "moll/vim-bbye", lazy = true },
+	{ "nvim-lualine/lualine.nvim", lazy = true },
+	{ "akinsho/toggleterm.nvim", lazy = true },
+	{ "ahmedkhalf/project.nvim", lazy = true },
 	-- { "lewis6991/impatient.nvim" },
-	{ "lukas-reineke/indent-blankline.nvim" },
-	{ "goolord/alpha-nvim" },
-	{ "ggandor/leap.nvim" },
+	{ "lukas-reineke/indent-blankline.nvim", lazy = true },
+	{ "goolord/alpha-nvim", lazy = true },
+	{ "ggandor/leap.nvim", lazy = true },
 
 	-- Cool stuff I've found
 	{
 		"samodostal/image.nvim",
+		lazy = true,
 		config = function()
 			require("image").setup()
 		end,
 	},
-	{ "rest-nvim/rest.nvim" },
-	{ "ellisonleao/glow.nvim" }, -- Markdown preview
+	{ "rest-nvim/rest.nvim", lazy = true },
+	{ "ellisonleao/glow.nvim", lazy = true }, -- Markdown preview
 	-- { "feline-nvim/feline.nvim" },
-	{ "eandrju/cellular-automaton.nvim" },
+	{ "eandrju/cellular-automaton.nvim", lazy = true },
 
 	{ "folke/lazy.nvim" },
 
@@ -68,7 +78,7 @@ local plugins = {
 		version = "^3.*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 	},
-	{ "uga-rosa/ccc.nvim" },
+	{ "uga-rosa/ccc.nvim", lazy = true },
 
 	-- Colorschemes
 	-- { "sainnhe/sonokai" },
@@ -82,9 +92,9 @@ local plugins = {
 	-- { "dasupradyumna/midnight.nvim", lazy = false, priority = 1000 },
 
 	-- cmp plugins
-	{ "hrsh7th/nvim-cmp" }, -- The completion plugin
-	{ "hrsh7th/cmp-buffer" }, -- buffer completions
-	{ "hrsh7th/cmp-path" }, -- path completions
+	{ "hrsh7th/nvim-cmp", lazy = true }, -- The completion plugin
+	{ "hrsh7th/cmp-buffer", lazy = true }, -- buffer completions
+	{ "hrsh7th/cmp-path", lazy = true }, -- path completions
 	{ "saadparwaiz1/cmp_luasnip" }, -- snippet completions
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-nvim-lua" },

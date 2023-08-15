@@ -5,10 +5,10 @@ end
 
 bufferline.setup({
 	options = {
-		close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-		right_mouse_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-		offsets = { { filetype = "NvimTree", text = "File Explorer", padding = 0 } },
-		separator_style = "thick", -- | "thick" | "thin" | "slant" | "padded_slant"
+		close_command = "BufferlinePickClose", -- can be a string | function, see "Mouse actions"
+		right_mouse_command = "BufferlinePickClose", -- can be a string | function, see "Mouse actions"
+		offsets = { { filetype = "Neotree", text = "File Explorer", padding = 0 } },
+		separator_style = "slant", -- | "thick" | "thin" | "slant" | "padded_slant"
 		-- indicator = {
 		-- 	style = "underline",
 		-- },

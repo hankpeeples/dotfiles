@@ -2,8 +2,8 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	pattern = { "qf", "help", "man", "lspinfo", "spectre_panel" },
 	callback = function()
 		vim.cmd([[
-      nnoremap <silent> <buffer> q :close<CR> 
-      set nobuflisted 
+      nnoremap <silent> <buffer> q :close<CR>
+      set nobuflisted
     ]])
 	end,
 })
@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
-local function open_nvim_tree(data)
+local function open_neo_tree(data)
 	-- buffer is a directory
 	local directory = vim.fn.isdirectory(data.file) == 1
 
@@ -39,11 +39,11 @@ local function open_nvim_tree(data)
 	-- change to the directory
 	vim.cmd.cd(data.file)
 	-- open the tree
-	require("nvim-tree.api").tree.open()
+	vim.cmd("Neotree")
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter " }, {
-	callback = open_nvim_tree,
+	callback = open_neo_tree,
 })
 
 -- Honestly, no clue what this does

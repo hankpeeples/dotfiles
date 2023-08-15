@@ -60,5 +60,3 @@ vim.g.gitblame_message_template = "<summary> • <date> • <author>"
 vim.g.gitblame_date_format = "%r"
 vim.g.gitblame_highlight_group = "Question"
 vim.g.gitblame_display_virtual_text = 0 -- Turn off because blame will show in statusline
-
-vim.api.nvim_exec_autocmds("FileType", {})
