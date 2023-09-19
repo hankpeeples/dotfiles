@@ -39,7 +39,7 @@ local function open_neo_tree(data)
 	-- change to the directory
 	vim.cmd.cd(data.file)
 	-- open the tree
-	vim.cmd("Neotree")
+	vim.cmd("NvimTreeOpen")
 end
 
 vim.api.nvim_create_autocmd({ "VimEnter " }, {
@@ -73,12 +73,12 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-	pattern = { "*.ts", "*.js", "*.tsx", ".jsx", "*.json", "*.css" },
-	callback = function()
-		vim.cmd("Prettier")
-	end,
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+-- 	pattern = { "*.ts", "*.js", "*.tsx", ".jsx", "*.json", "*.css" },
+-- 	callback = function()
+-- 		vim.cmd("Prettier")
+-- 	end,
+-- })
 
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
 	callback = function()

@@ -117,9 +117,10 @@ alias cdunt="cd ~/Desktop/UNT"
 alias cdg="cd ~/go/src/github.com/hankpeeples"
 alias cdr="cd ~/Documents/Rust"
 alias cdrn="cd ~/Documents/React_Native"
+alias cdts="cd ~/Documents/React/TS"
 
-alias l="exa --long --header --git --no-permissions --no-user --all --grid --icons"
-alias ll="exa --long --no-user --git --all --icons"
+alias l="eza --long --header --git --no-permissions --no-user --all --grid --icons"
+alias ll="eza --long --no-user --git --all --icons"
 
 alias refresh="source ~/.zshrc" # Refresh terminal without having to close it.
 
@@ -162,3 +163,10 @@ export PNPM_HOME="/Users/hankpeeples/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 
+
+# bun completions
+[ -s "/Users/hankpeeples/.bun/_bun" ] && source "/Users/hankpeeples/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

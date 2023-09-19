@@ -1,105 +1,19 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-$hostname\
-$shlvl\
-$kubernetes\
-${custom.dir}\
-${custom.home_dir}\
-$directory\
-$git_branch\
-$git_commit\
-$git_state\
-$git_status\
-$hg_branch\
-$docker_context\
-$package\
-$cmake\
-$dart\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$golang\
-$helm\
-$java\
-$julia\
-$kotlin\
-$nim\
-$nodejs\
-$ocaml\
-$perl\
-$php\
-$purescript\
-$python\
-$ruby\
-$rust\
-$swift\
-$terraform\
-$vagrant\
-$zig\
-$nix_shell\
-$conda\
-$gcloud\
-$openstack\
-$env_var\
-$crystal\
-$custom\
-$cmd_duration\
-$lua\
-$jobs\
-$status\
-$character
+$all\
+$os
 """
 
 scan_timeout = 10
 
 add_newline = true
 
-[battery]
+[character]
 disabled = true
 
-[character]
-success_symbol = "[❯](#f5e0dc)[❯](#cba6f7)[❯](#fab387)"
-error_symbol = "[❯❯❯](#f38ba8)"
-
-[directory]
-truncation_length = 3
-format = "[ $path ]($style)[$read_only]($read_only_style) "
-style = "fg:#ffffff bg:#11111b bold"
-read_only = "  "
-read_only_style = "fg:black bg:red"
-
-[git_branch]
-format = "[$symbol$branch]($style) "
-
-[git_status]
-conflicted = "[ ](white)=[$count](bright-white bold)[ ](white)"
-ahead = "[ ](white)⇡[$count](bright-white bold)[ ](white)"
-behind = "[ ](white)⇣[$count](bright-white bold)[ ](white)"
-diverged = "[ ](white)⇕⇡[$ahead_count](bright-white bold)⇣[$behind_count](bright-white)[ ](white)"
-untracked = "[ ](white)?[$count](bright-white bold)[ ](white)"
-stashed = "[ ](white)$[$count](bright-white bold)[ ](white)"
-modified = "[ ](white)![$count](bright-white bold)[ ](white)"
-staged = "[ ](white)+[$count](bright-white bold)[ ](white)"
-renamed = "[ ](white)»[$count](bright-white bold)[ ](white)"
-deleted = "[ ](white)✗[$count](bright-white bold)[ ](white)"
-
-[custom.home_dir]
-command = "echo  "
-when = '[ "$PWD" == "$HOME" ]'
-shell = ["bash","--norc","--noprofile"]
-style = "fg:#11111b bg:#fab387"
-format = "[ $output ]($style)"
-
-[custom.dir]
-command = "echo  "
-when = '[ "$PWD" != "$HOME" ]'
-shell = ["bash","--norc","--noprofile"]
-style = "fg:#11111b bg:#fab387"
-format = "[ $output ]($style)"
-
-[hostname]
+[aws]
+symbol = "  "
 disabled = true
 
 [buf]
@@ -111,8 +25,14 @@ symbol = " "
 [conda]
 symbol = " "
 
+[cmd_duration]
+format = '\[[⏱ $duration]($style)\]'
+
 [dart]
 symbol = " "
+
+[directory]
+read_only = " 󰌾"
 
 [docker_context]
 symbol = " "
@@ -123,14 +43,33 @@ symbol = " "
 [elm]
 symbol = " "
 
+[fossil_branch]
+symbol = " "
+
+[git_branch]
+symbol = " "
+format = '\[[ $symbol$branch ]($style)\]'
+
+[git_status]
+format = '([\[ $all_status$ahead_behind \]]($style)) '
+
 [golang]
 symbol = " "
+
+[guix_shell]
+symbol = " "
 
 [haskell]
 symbol = " "
 
+[haxe]
+symbol = " "
+
 [hg_branch]
 symbol = " "
+
+[hostname]
+ssh_symbol = " "
 
 [java]
 symbol = " "
@@ -141,11 +80,14 @@ symbol = " "
 [lua]
 symbol = " "
 
+[memory_usage]
+symbol = "󰍛 "
+
 [meson]
-symbol = "喝 "
+symbol = "󰔷 "
 
 [nim]
-symbol = " "
+symbol = "󰆥 "
 
 [nix_shell]
 symbol = " "
@@ -153,16 +95,61 @@ symbol = " "
 [nodejs]
 symbol = " "
 
+[os]
+disabled = false
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+
 [package]
-symbol = " "
-display_private = true
-format = "[$symbol$version]($style) "
+symbol = "󰏗 "
+
+[pijul_channel]
+symbol = " "
 
 [python]
 symbol = " "
 
 [rlang]
-symbol = "ﳒ "
+symbol = "󰟔 "
 
 [ruby]
 symbol = " "
@@ -172,6 +159,3 @@ symbol = " "
 
 [scala]
 symbol = " "
-
-[spack]
-symbol = "🅢 "

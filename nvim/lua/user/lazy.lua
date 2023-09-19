@@ -12,23 +12,19 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-	-- My plugins here
-	-- { "wbthomason/packer.nvim" }, -- Have packer manage itself
 	{ "nvim-lua/plenary.nvim" }, -- Useful lua functions used by lots of plugins
 	{ "windwp/nvim-autopairs", lazy = true }, -- Autopairs, integrates with both cmp and treesitter
 	{ "numToStr/Comment.nvim", lazy = true },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 	{ "nvim-tree/nvim-web-devicons" },
-	-- { "kyazdani42/nvim-tree.lua", lazy = true },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    }
-},
+	{
+		"nvim-tree/nvim-tree.lua",
+		version = "*",
+		lazy = false,
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+	},
 	{ "moll/vim-bbye", lazy = true },
 	{ "nvim-lualine/lualine.nvim", lazy = true },
 	{ "akinsho/toggleterm.nvim", lazy = true },
@@ -39,13 +35,13 @@ local plugins = {
 	{ "ggandor/leap.nvim", lazy = true },
 
 	-- Cool stuff I've found
-	{
-		"samodostal/image.nvim",
-		lazy = true,
-		config = function()
-			require("image").setup()
-		end,
-	},
+	-- {
+	-- 	"samodostal/image.nvim",
+	-- 	lazy = true,
+	-- 	config = function()
+	-- 		require("image").setup()
+	-- 	end,
+	-- },
 	{ "rest-nvim/rest.nvim", lazy = true },
 	{ "ellisonleao/glow.nvim", lazy = true }, -- Markdown preview
 	-- { "feline-nvim/feline.nvim" },
@@ -71,8 +67,10 @@ local plugins = {
 	-- },
 
 	-- Treesitter
-	{ "nvim-treesitter/nvim-treesitter" },
-	{ "p00f/nvim-ts-rainbow" }, -- Must be loaded before 'bufferline' and any Colorschemes
+	{
+		"nvim-treesitter/nvim-treesitter",
+	},
+	{ "HiPhish/rainbow-delimiters.nvim" },
 	{
 		"akinsho/bufferline.nvim",
 		version = "^3.*",
@@ -81,14 +79,14 @@ local plugins = {
 	{ "uga-rosa/ccc.nvim", lazy = true },
 
 	-- Colorschemes
-	-- { "sainnhe/sonokai" },
-	-- { "folke/tokyonight.nvim" },
+	{ "sainnhe/sonokai" },
+	{ "folke/tokyonight.nvim" },
 	{ "sainnhe/gruvbox-material" },
 
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-	},
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	name = "catppuccin",
+	-- },
 	-- { "dasupradyumna/midnight.nvim", lazy = false, priority = 1000 },
 
 	-- cmp plugins

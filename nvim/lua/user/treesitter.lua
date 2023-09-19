@@ -15,6 +15,7 @@ configs.setup({
 		"go",
 		"javascript",
 		"typescript",
+		"graphql",
 		"tsx",
 		"rust",
 		"json",
@@ -45,10 +46,5 @@ configs.setup({
 	context_commentstring = {
 		enable = true,
 		enable_autocmd = true,
-	},
-	rainbow = {
-		enable = true,
-		extended_mode = true,
-		max_file_lines = nil,
 	},
 })
