@@ -8,7 +8,7 @@ local servers = {
 	"jsonls",
 	"yamlls",
 	"gopls",
-	-- "tailwindcss",
+	"tailwindcss",
 	"stylelint_lsp",
 	"rust_analyzer",
 }

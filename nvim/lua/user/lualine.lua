@@ -51,7 +51,7 @@ local spaces = function()
 end
 
 local function lsp_client()
-	local buf_clients = vim.lsp.buf_get_clients()
+	local buf_clients = vim.lsp.get_clients()
 	if next(buf_clients) == nil then
 		return ""
 	end

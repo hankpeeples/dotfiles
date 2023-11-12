@@ -30,7 +30,7 @@ local plugins = {
 	{ "akinsho/toggleterm.nvim", lazy = true },
 	{ "ahmedkhalf/project.nvim", lazy = true },
 	-- { "lewis6991/impatient.nvim" },
-	{ "lukas-reineke/indent-blankline.nvim", lazy = true },
+	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	{ "goolord/alpha-nvim", lazy = true },
 	{ "ggandor/leap.nvim", lazy = true },
 
@@ -67,27 +67,27 @@ local plugins = {
 	-- },
 
 	-- Treesitter
-	{
-		"nvim-treesitter/nvim-treesitter",
-	},
+	{ "nvim-treesitter/nvim-treesitter" },
 	{ "HiPhish/rainbow-delimiters.nvim" },
 	{
 		"akinsho/bufferline.nvim",
 		version = "^3.*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 	},
+	{ "styled-components/vim-styled-components" },
 	{ "uga-rosa/ccc.nvim", lazy = true },
 
 	-- Colorschemes
 	{ "sainnhe/sonokai" },
+	{ "sainnhe/everforest" },
 	{ "folke/tokyonight.nvim" },
 	{ "sainnhe/gruvbox-material" },
 
-	-- {
-	-- 	"catppuccin/nvim",
-	-- 	name = "catppuccin",
-	-- },
-	-- { "dasupradyumna/midnight.nvim", lazy = false, priority = 1000 },
+  {
+	 	"catppuccin/nvim",
+	 	name = "catppuccin",
+	 },
+	{ "dasupradyumna/midnight.nvim", lazy = false, priority = 1000 },
 
 	-- cmp plugins
 	{ "hrsh7th/nvim-cmp", lazy = true }, -- The completion plugin
@@ -144,7 +144,10 @@ local plugins = {
 	{ "rust-lang/rust.vim" },
 
 	-- Telescope
-	{ "nvim-telescope/telescope.nvim" },
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = "nvim-telescope/telescope-media-files.nvim",
+	},
 
 	-- Git
 	{ "lewis6991/gitsigns.nvim" },

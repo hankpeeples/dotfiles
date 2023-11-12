@@ -35,17 +35,18 @@ null_ls.setup({
 		diagnostics.revive.with({ -- Golang linter
 			args = {
 				"-config",
-				"/Users/hankpeeples/.config/revive/config.toml",
+				"/home/hankp/.config/revive/config.toml",
 				"-formatter",
 				"json",
 			},
 		}),
 		formatting.prettierd,
 		formatting.rustfmt, -- Rust formatter
-		-- formatting.rustywind, -- Tailwind css formatter
+		formatting.rustywind, -- Tailwind css formatter
 		diagnostics.checkmake,
 		diagnostics.write_good,
 		-- diagnostics.stylelint,
+		-- diagnostics.eslint_d,
 		diagnostics.jsonlint, -- JSON
 		formatting.uncrustify, -- Java, C++, C, C#
 	},
