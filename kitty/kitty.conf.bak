@@ -6,35 +6,30 @@
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-# font_family      Iosevka Nerd Font Mono Regular
-# bold_font        Iosevka Nerd Font Mono Bold
-# italic_font      Iosevka Nerd Font Mono Light Italic
-# bold_italic_font Iosevka Nerd Font Mono Bold Italic
+# font_family      IosevkaTerm NF
+# bold_font        IosevkaTerm NF Bold
+# italic_font      IosevkaTerm NF Italic
+# bold_italic_font IosevkaTerm NF Bold Italic
 
-font_family      Hurmit Nerd Font Mono Regular
-bold_font        Hurmit Nerd Font Mono Bold
-italic_font      Hurmit Nerd Font Mono Light Italic
-bold_italic_font Hurmit Nerd Font Mono Bold Italic
+font_family        CartographCF Nerd Font Mono
+bold_font          CartographCF Nerd Font Mono Bold
+italic_font        CartographCF Nerd Font Mono DemiBold Italic
+bold_italic_font   CartographCF Nerd Font Mono Bold Italic
 
-# font_family        SpaceMono Nerd Font Mono Regular
-# bold_font          SpaceMono Nerd Font Mono Bold
-# italic_font        SpaceMono Nerd Font Mono Italic
-# bold_italic_font   SpaceMono Nerd Font Mono Bold Italic
+# font_family      Hurmit Nerd Font Mono Regular
+# bold_font        Hurmit Nerd Font Mono Bold
+# italic_font      Hurmit Nerd Font Mono Light Italic
+# bold_italic_font Hurmit Nerd Font Mono Bold Italic
 
-# font_family       JetBrainsMonoNLNerdFontCompleteM-Regular
-# bold_font         JetBrainsMonoNLNerdFontCompleteM-Bold
-# italic_font       JetBrainsMonoNLNerdFontCompleteM-LightItalic
-# bold_italic_font  JetBrainsMonoNLNerdFontCompleteM-BoldItalic
+# font_family       JetBrainsMono NFM Regular
+# bold_font         JetBrainsMono NFM Bold
+# italic_font       JetBrainsMono NFM Italic
+# bold_italic_font  JetBrainsMono NFM Bold Italic
 
-# font_family       FantasqueSansMono Nerd Font Mono Regular
-# italic_font       FantasqueSansMono Nerd Font Mono Italic
-# bold_font         FantasqueSansMono Nerd Font Mono Bold
-# bold_italic_font  FantasqueSansMono Nerd Font Mono Bold Italic
-
-# font_family         CaskaydiaCove Nerd Font Mono Regular
-# bold_font           CaskaydiaCove Nerd Font Mono Bold
-# italic_font         CaskaydiaCove Nerd Font Mono Regular Italic
-# bold_italic_font    CaskaydiaCove Nerd Font Mono Bold Italic
+# font_family       FantasqueSansM Nerd Font Mono Regular
+# italic_font       FantasqueSansM Nerd Font Mono Italic
+# bold_font         FantasqueSansM Nerd Font Mono Bold
+# bold_italic_font  FantasqueSansM Nerd Font Mono Bold Italic
 
 #: You can specify different fonts for the bold/italic/bold-italic
 #: variants. To get a full list of supported fonts use the `kitty
@@ -49,7 +44,7 @@ bold_italic_font Hurmit Nerd Font Mono Bold Italic
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 12
+font_size 9
 
 #: Font size (in pts)
 
@@ -100,7 +95,7 @@ font_size 12
 
 #:     narrow_symbols codepoints [optionally the number of cells]
 
-disable_ligatures always
+# disable_ligatures always
 
 #: Choose how you want to handle multi-character ligatures. The
 #: default is to always render them. You can tell kitty to not render
@@ -150,9 +145,9 @@ modify_font underline_thickness 50%
 #: font glyph is rendered and the baseline at which the glyph is
 #: placed in the cell. For example::
 
-#:     modify_font cell_width 80%
-#:     modify_font cell_height -2px
-#:     modify_font baseline 3
+# modify_font cell_width 100%
+# modify_font cell_height -3px
+# modify_font baseline 3
 
 #: Note that modifying the baseline will automatically adjust the
 #: underline and strikethrough positions by the same amount.
@@ -221,7 +216,7 @@ cursor_shape block
 
 #: Scrollback {{{
 
-scrollback_lines 1000
+scrollback_lines 3000
 
 #: Number of lines of history to keep in memory for scrolling back.
 #: Memory is allocated on demand. Negative numbers are (effectively)
@@ -975,7 +970,7 @@ tab_activity_symbol "⌬ "
 
 #: The foreground and background colors.
 
-background_opacity 1
+background_opacity 0.94
 
 #: The opacity of the background. A number between zero and one, where
 #: one is opaque and zero is fully transparent. This will only work if
@@ -1489,7 +1484,7 @@ macos_quit_when_last_window_closed yes
 #: configuration will change this value only for newly created OS
 #: windows.
 
-# linux_display_server auto
+linux_display_server Wayland
 
 #: Choose between Wayland and X11 backends. By default, an appropriate
 #: backend based on the system state is chosen automatically. Set it
@@ -2224,6 +2219,6 @@ macos_quit_when_last_window_closed yes
 
 
 # BEGIN_KITTY_THEME
-# Chalkboard
+# Tokyo Night Storm
 include current-theme.conf
 # END_KITTY_THEME
