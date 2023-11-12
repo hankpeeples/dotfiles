@@ -1,11 +1,14 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export XDG_CONFIG_HOME="~/.config/"
+
 # Turn on Go Modules
 export GO111MODULE=on
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/hankpeeples/.oh-my-zsh"
+export ZSH="/home/hankp/.oh-my-zsh"
+export MYVIMRC="~/.config/nvim"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -75,9 +78,8 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-z zsh-syntax-highlighting zsh-autosuggestions 
-  colored-man-pages yarn-autocompletions brew zsh-brew-services hanami
-  docker 
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions 
+  colored-man-pages docker 
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -101,8 +103,11 @@ export EDITOR='nvim'
 # export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs, plugins, and themes.
-alias archFlags="arch -x86_64" # Needed for `brew` installs
+#alias archFlags="arch -x86_64" # Needed for `brew` installs
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 alias nvim='nvim -u ~/.config/nvim/init.lua'
 alias nvimw='nvim -u ~/.config/nvim/initWeak.lua'
 alias zshconfig="nvim ~/.zshrc"
@@ -110,6 +115,7 @@ alias nvc="nvim ~/.config/nvim" # Open neovim config
 alias starshipconfig="nvim ~/.config/starship.toml" # Open starship config
 alias alacrittyConfig="nvim ~/.config/alacritty/alacritty.yml"
 alias kittyconf="nvim ~/.config/kitty/kitty.conf"
+alias hyprconfig="nvim ~/.config/hypr"
 
 alias untssh="ssh hgp0019@cell03-cse.eng.unt.edu"
 
@@ -124,12 +130,10 @@ alias ll="eza --long --no-user --git --all --icons"
 
 alias refresh="source ~/.zshrc" # Refresh terminal without having to close it.
 
-alias start_psql="/Applications/Postgres.app/Contents/Versions/14/bin/psql -p 5432" # Start postgres server
 alias bathelp="bat --plain --language=help" # `bat` is a better `cat`
 alias deploy="yarn build && firebase deploy --only hosting:henrypeeples" # For deploying personal website
 alias findFile="find / -type f -iname" # Easier command to search system for a file name
 alias lg="lazygit" # Open lazygit terminal gui
-alias dockerOpen="open /Applications/Docker.app" # start docker desktop from terminal
 alias icat="kitty +kitten icat"
 alias tree="tree -C -a -I '.git|.github|.yarn|.DS_Store|node_modules'"
 
@@ -146,27 +150,12 @@ fi
 
 eval "$(starship init zsh)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && . "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 fpath+=${ZDOTDIR:-~}/.zsh_functions
 
-export PYENV_ROOT="/opt/homebrew/Cellar/python@3.10/3.10.8/bin"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-# pnpm
-export PNPM_HOME="/Users/hankpeeples/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-# bun completions
-[ -s "/Users/hankpeeples/.bun/_bun" ] && source "/Users/hankpeeples/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# Created by `pipx` on 2023-09-20 16:28:52
+export PATH="$PATH:/home/hankp/.local/bin"

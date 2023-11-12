@@ -1,8 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-$all\
-$os
+$all
 """
 
 scan_timeout = 10
@@ -10,7 +9,7 @@ scan_timeout = 10
 add_newline = true
 
 [character]
-disabled = true
+disabled = false
 
 [aws]
 symbol = "  "
