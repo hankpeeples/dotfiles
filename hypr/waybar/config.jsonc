@@ -1,0 +1,131 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "height": 30,
+  "margin": 4,
+  // Choose the order of the modules
+  "modules-left": [
+    "tray",
+    "custom/sep",
+    "custom/weather",
+    "custom/sep",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "cpu",
+    "temperature",
+    "custom/sep",
+    "hyprland/workspaces",
+    "custom/sep",
+    "memory"
+  ],
+  "modules-right": [
+    "disk#ssd",
+    "custom/sep",
+    "network",
+    "custom/sep",
+    "pulseaudio",
+    "custom/sep",
+    "clock"
+  ],
+  "custom/sep": {
+    "format": " | "
+  },
+  // Modules configuration
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    // "all-outputs": true,
+    // "active-only": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "default": " ",
+      "urgent": " ",
+      "active": " "
+    }
+  },
+  "hyprland/window": {
+    "format": "   {}"
+  },
+  "tray": {
+    //"icon-size": 21,
+    "spacing": 10
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "  {usage}%",
+    "format-alt": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+  },
+  "memory": {
+    "interval": 1,
+    "format": "  {used:0.1f}GB / {total:0.1f}GB",
+    "format-alt": "  {used}GB",
+    // "max-length": 10,
+    "tooltip": true,
+    "tooltip-format": "  {used:0.1f}GB/{total:0.1f}GB"
+  },
+  "clock": {
+    "format": "{:  %I:%M %p  󰃭  %a %d}",
+    "format-alt": "{:  %H:%M    %b %Y}",
+    "tooltip-format": "<tt><big>{calendar}</big></tt>"
+  },
+  // right modules //
+  "custom/updates": {
+    "format": "󰮯 {}",
+    "exec": "~/.config/hypr/waybar/scripts/update-sys.sh",
+    "on-click": "~/.config/hypr/waybar/scripts/update-sys.sh update",
+    "interval": 86400, // once every day
+    "tooltip": true
+  },
+  "custom/weather": {
+    "tooltip": true,
+    "format": "{}",
+    "restart-interval": 300,
+    "exec": "$HOME/.config/hypr/waybar/scripts/waybar-wttr.py",
+    "return-type": "json"
+  },
+  "temperature": {
+    "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon5/temp1_input",
+    "critical-threshold": 90,
+    "format-critical": "  {temperatureC}°C {icon}",
+    "format": "  {temperatureC}°C {icon}",
+    "interval": 1
+  },
+  "disk#ssd": {
+    "interval": 30,
+    "format": " {path} {free}",
+    "path": "/",
+    "tooltip": true,
+    "warning": 80,
+    "critical": 90
+  },
+  "network": {
+    // "interface": "enp1s0", // (Optional) To force the use of this interface
+    "format-wifi": "  {essid} {signalStrength}%",
+    // "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+    "format-ethernet": "DIGI 1000 ",
+    "format-linked": "DIGI (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+  "pulseaudio": {
+    "scroll-step": 5, // %, can be a float
+    "format": "  {volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}  {format_source}",
+    "format-bluetooth-muted": "  {icon}  {format_source}",
+    "format-muted": "  {format_source}",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "escape": true
+    // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+  }
+}
