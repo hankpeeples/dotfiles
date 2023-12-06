@@ -25,7 +25,7 @@ symbol = " "
 symbol = " "
 
 [cmd_duration]
-format = '\[[⏱ $duration]($style)\]'
+format = '\[[⏱  $duration]($style)\]'
 
 [dart]
 symbol = " "
@@ -69,6 +69,9 @@ symbol = " "
 
 [hostname]
 ssh_symbol = " "
+ssh_only = false
+format = '[$hostname](bold red) '
+disabled = false
 
 [java]
 symbol = " "
