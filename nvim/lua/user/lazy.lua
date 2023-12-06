@@ -17,35 +17,12 @@ local plugins = {
 	{ "numToStr/Comment.nvim", lazy = true },
 	{ "JoosepAlviste/nvim-ts-context-commentstring" },
 	{ "nvim-tree/nvim-web-devicons" },
-	{
-		"nvim-tree/nvim-tree.lua",
-		version = "*",
-		lazy = false,
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-	},
-	{ "moll/vim-bbye", lazy = true },
+	-- { "moll/vim-bbye", lazy = true },
 	{ "nvim-lualine/lualine.nvim", lazy = true },
 	{ "akinsho/toggleterm.nvim", lazy = true },
-	{ "ahmedkhalf/project.nvim", lazy = true },
-	-- { "lewis6991/impatient.nvim" },
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 	{ "goolord/alpha-nvim", lazy = true },
 	{ "ggandor/leap.nvim", lazy = true },
-
-	-- Cool stuff I've found
-	-- {
-	-- 	"samodostal/image.nvim",
-	-- 	lazy = true,
-	-- 	config = function()
-	-- 		require("image").setup()
-	-- 	end,
-	-- },
-	{ "rest-nvim/rest.nvim", lazy = true },
-	{ "ellisonleao/glow.nvim", lazy = true }, -- Markdown preview
-	-- { "feline-nvim/feline.nvim" },
-	{ "eandrju/cellular-automaton.nvim", lazy = true },
 
 	{ "folke/lazy.nvim" },
 
@@ -57,37 +34,45 @@ local plugins = {
 			"rcarriga/nvim-notify",
 		},
 	},
-	-- {
-	-- 	"utilyre/barbecue.nvim",
-	-- 	dependencies = {
-	-- 		"neovim/nvim-lspconfig",
-	-- 		"SmiteshP/nvim-navic",
-	-- 		"nvim-tree/nvim-web-devicons",
-	-- 	},
-	-- },
-
-	-- Treesitter
-	{ "nvim-treesitter/nvim-treesitter" },
-	{ "HiPhish/rainbow-delimiters.nvim" },
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+		},
+	},
+	{
+		"romgrk/barbar.nvim",
+		dependencies = {
+			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+		},
+	},
 	{
 		"akinsho/bufferline.nvim",
 		version = "^3.*",
 		dependencies = "nvim-tree/nvim-web-devicons",
 	},
+	{
+		"luukvbaal/statuscol.nvim",
+		config = function()
+			require("statuscol").setup()
+		end,
+	},
+	{
+		"simrat39/symbols-outline.nvim",
+	},
+
+	-- Treesitter
+	{ "nvim-treesitter/nvim-treesitter" },
+	{ "HiPhish/rainbow-delimiters.nvim" },
+
 	{ "styled-components/vim-styled-components" },
 	{ "uga-rosa/ccc.nvim", lazy = true },
 
 	-- Colorschemes
-	{ "sainnhe/sonokai" },
-	{ "sainnhe/everforest" },
-	{ "folke/tokyonight.nvim" },
-	{ "sainnhe/gruvbox-material" },
-
-  {
-	 	"catppuccin/nvim",
-	 	name = "catppuccin",
-	 },
-	{ "dasupradyumna/midnight.nvim", lazy = false, priority = 1000 },
+	{ "Shatur/neovim-ayu" },
 
 	-- cmp plugins
 	{ "hrsh7th/nvim-cmp", lazy = true }, -- The completion plugin
@@ -96,15 +81,6 @@ local plugins = {
 	{ "saadparwaiz1/cmp_luasnip" }, -- snippet completions
 	{ "hrsh7th/cmp-nvim-lsp" },
 	{ "hrsh7th/cmp-nvim-lua" },
-	-- {
-	-- 	"glepnir/lspsaga.nvim",
-	-- 	event = "BufRead",
-	-- 	dependencies = { { "nvim-tree/nvim-web-devicons" } },
-	-- },
-	-- tabnine AI Assistant
-	-- {
-	--   "tzachar/cmp-tabnine", -- Make sure to run `./install.sh` from `~/.local/share/nvim/lazy/cmp-tabnine`
-	-- },
 
 	-- snippets
 	{ "L3MON4D3/LuaSnip" }, --snippet engine
@@ -129,8 +105,6 @@ local plugins = {
 
 	{ "kevinhwang91/nvim-ufo", dependencies = "kevinhwang91/promise-async" },
 
-	-- Golang
-	-- { "crispgm/nvim-go" },
 	{
 		"fatih/vim-go",
 		run = ":GoUpdateBinaries",
@@ -138,10 +112,6 @@ local plugins = {
 			"junegunn/fzf.vim",
 		},
 	},
-
-	-- Rust
-	{ "simrat39/rust-tools.nvim" },
-	{ "rust-lang/rust.vim" },
 
 	-- Telescope
 	{
@@ -153,11 +123,16 @@ local plugins = {
 	{ "lewis6991/gitsigns.nvim" },
 	{ "airblade/vim-gitgutter" },
 	{ "f-person/git-blame.nvim" },
-
-	-- DAP
-	{ "mfussenegger/nvim-dap" },
-	{ "rcarriga/nvim-dap-ui" },
-	{ "ravenxrz/DAPInstall.nvim" },
+	{
+		"NeogitOrg/neogit",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required
+			"nvim-telescope/telescope.nvim", -- optional
+			"sindrets/diffview.nvim", -- optional
+			"ibhagwan/fzf-lua", -- optional
+		},
+		config = true,
+	},
 
 	-- Which Key
 	{ "folke/which-key.nvim" },

@@ -1,38 +1,97 @@
-vim.fn.sign_define("DiagnosticSignError", { text = " ", texthl = "DiagnosticSignError" })
-vim.fn.sign_define("DiagnosticSignWarn", { text = " ", texthl = "DiagnosticSignWarn" })
-vim.fn.sign_define("DiagnosticSignInfo", { text = " ", texthl = "DiagnosticSignInfo" })
-vim.fn.sign_define("DiagnosticSignHint", { text = "󰌵", texthl = "DiagnosticSignHint" })
-
 require("neo-tree").setup({
-	close_if_last_window = false, -- Close Neo-tree if it is the last window left in the tab
-	popup_border_style = "rounded",
-	enable_git_status = true,
+	sources = {
+		"filesystem",
+		"buffers",
+		"git_status",
+	},
+	add_blank_line_at_top = false,
+	auto_clean_after_session_restore = false,
+	close_if_last_window = false,
+	default_source = "filesystem",
 	enable_diagnostics = true,
-	enable_normal_mode_for_inputs = false, -- Enable normal mode for input dialogs.
-	open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-	sort_case_insensitive = false, -- used when sorting files and directories in the tree
-	sort_function = nil, -- use a custom function for sorting files and directories in the tree
-	-- sort_function = function(a, b)
-	-- 	if a.type == b.type then
-	-- 		return a.path > b.path
-	-- 	else
-	-- 		return a.type > b.type
-	-- 	end
-	-- end, -- this sorts files and directories descendantly
+	enable_git_status = true,
+	enable_modified_markers = true,
+	enable_opened_markers = true,
+	enable_refresh_on_write = true,
+	git_status_async = true,
+	git_status_async_options = {
+		batch_size = 1000,
+		batch_delay = 10,
+		max_lines = 10000,
+	},
+	hide_root_node = true,
+	retain_hidden_root_indent = false,
+	log_level = "info",
+	log_to_file = false,
+	open_files_in_last_window = true,
+	open_files_do_not_replace_types = { "terminal", "trouble", "qf" },
+	popup_border_style = "single",
+	resize_timer_interval = 500,
+	sort_case_insensitive = false,
+	sort_function = nil,
+	use_popups_for_input = true,
+	use_default_mappings = true,
+	source_selector = {
+		winbar = true,
+		statusline = false,
+		show_scrolled_off_parent_node = false,
+		sources = {
+			{
+				source = "filesystem",
+				display_name = " 󰉕 Files ",
+			},
+			{
+				source = "buffers",
+				display_name = "  Buffers ",
+			},
+			{
+				source = "git_status",
+				display_name = "  Git ",
+			},
+		},
+		content_layout = "start",
+		tabs_layout = "equal",
+		truncation_character = "…",
+		tabs_min_width = nil,
+		tabs_max_width = nil,
+		padding = 0,
+		separator = { left = "▏", right = "▕" },
+		separator_active = nil,
+		show_separator_on_edge = false,
+		highlight_tab = "NeoTreeTabInactive",
+		highlight_tab_active = "NeoTreeTabActive",
+		highlight_background = "NeoTreeTabInactive",
+		highlight_separator = "NeoTreeTabSeparatorInactive",
+		highlight_separator_active = "NeoTreeTabSeparatorActive",
+	},
 	default_component_configs = {
 		container = {
 			enable_character_fade = true,
+			width = "100%",
+			right_padding = 0,
+		},
+		diagnostics = {
+			symbols = {
+				hint = "󰸥",
+				info = "󰵚",
+				warn = "",
+				error = "",
+			},
+			highlights = {
+				hint = "DiagnosticSignHint",
+				info = "DiagnosticSignInfo",
+				warn = "DiagnosticSignWarn",
+				error = "DiagnosticSignError",
+			},
 		},
 		indent = {
 			indent_size = 2,
-			padding = 1, -- extra padding on left hand side
-			-- indent guides
+			padding = 1,
 			with_markers = true,
 			indent_marker = "│",
 			last_indent_marker = "└",
 			highlight = "NeoTreeIndentMarker",
-			-- expander config, needed for nesting files
-			with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+			with_expanders = nil,
 			expander_collapsed = "",
 			expander_expanded = "",
 			expander_highlight = "NeoTreeExpander",
@@ -40,44 +99,104 @@ require("neo-tree").setup({
 		icon = {
 			folder_closed = "",
 			folder_open = "",
-			folder_empty = "󰜌",
-			-- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
-			-- then these will never be used.
+			folder_empty = "",
+			folder_empty_open = "",
 			default = "*",
 			highlight = "NeoTreeFileIcon",
 		},
 		modified = {
-			symbol = "[+]",
+			symbol = "[+] ",
 			highlight = "NeoTreeModified",
 		},
 		name = {
 			trailing_slash = false,
-			use_git_status_colors = true,
+			highlight_opened_files = false,
+			use_git_status_colors = false,
 			highlight = "NeoTreeFileName",
 		},
 		git_status = {
 			symbols = {
 				-- Change type
-				added = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
-				modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-				deleted = "✖", -- this can only be used in the git_status source
-				renamed = "󰁕", -- this can only be used in the git_status source
+				added = "",
+				deleted = "",
+				modified = "",
+				renamed = "",
 				-- Status type
 				untracked = "",
 				ignored = "",
-				unstaged = "󰄱",
-				staged = "",
+				unstaged = "",
+				staged = "",
 				conflict = "",
 			},
+			align = "right",
 		},
 	},
-	-- A list of functions, each representing a global custom command
-	-- that will be available in all sources (if not overridden in `opts[source_name].commands`)
-	-- see `:h neo-tree-custom-commands-global`
+	renderers = {
+		directory = {
+			{ "indent" },
+			{ "icon" },
+			{ "current_filter" },
+			{
+				"container",
+				content = {
+					{ "name", zindex = 10 },
+					{ "clipboard", zindex = 10 },
+					{
+						"diagnostics",
+						errors_only = true,
+						zindex = 20,
+						align = "right",
+						hide_when_expanded = true,
+					},
+					{ "git_status", zindex = 20, align = "right", hide_when_expanded = true },
+				},
+			},
+		},
+		file = {
+			{ "indent" },
+			{ "icon" },
+			{
+				"container",
+				content = {
+					{
+						"name",
+						zindex = 10,
+					},
+					{ "clipboard", zindex = 10 },
+					{ "bufnr", zindex = 10 },
+					{ "modified", zindex = 20, align = "right" },
+					{ "diagnostics", zindex = 20, align = "right" },
+					{ "git_status", zindex = 20, align = "right" },
+				},
+			},
+		},
+		message = {
+			{ "indent", with_markers = false },
+			{ "name", highlight = "NeoTreeMessage" },
+		},
+		terminal = {
+			{ "indent" },
+			{ "icon" },
+			{ "name" },
+			{ "bufnr" },
+		},
+	},
+	nesting_rules = {},
 	commands = {},
-	window = {
-		position = "left",
-		width = 40,
+	window = { -- see https://github.com/MunifTanjim/nui.nvim/tree/main/lua/nui/popup for
+		position = "left", -- left, right, top, bottom, float, current
+		width = 30, -- applies to left and right positions
+		height = 15, -- applies to top and bottom positions
+		auto_expand_width = false, -- expand the window when file exceeds the window width. does not work with position = "float"
+		popup = { -- settings that apply to float position only
+			size = {
+				height = "80%",
+				width = "50%",
+			},
+			position = "50%", -- 50% means center it
+		},
+		same_level = false, -- Create and paste/move files/directories on the same level as the directory under cursor (as opposed to within the directory under cursor).
+		insert_as = "child", -- Affects how nodes get inserted into the tree during creation/pasting/moving of files if the node under the cursor is a directory:
 		mapping_options = {
 			noremap = true,
 			nowait = true,
@@ -89,100 +208,56 @@ require("neo-tree").setup({
 			},
 			["<2-LeftMouse>"] = "open",
 			["<cr>"] = "open",
-			["<esc>"] = "cancel", -- close preview or floating neo-tree window
+			["<esc>"] = "revert_preview",
 			["P"] = { "toggle_preview", config = { use_float = true } },
 			["l"] = "focus_preview",
 			["S"] = "open_split",
-			["s"] = "open_vsplit",
 			-- ["S"] = "split_with_window_picker",
+			["s"] = "open_vsplit",
 			-- ["s"] = "vsplit_with_window_picker",
 			["t"] = "open_tabnew",
 			-- ["<cr>"] = "open_drop",
 			-- ["t"] = "open_tab_drop",
 			["w"] = "open_with_window_picker",
-			--["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
 			["C"] = "close_node",
-			-- ['C'] = 'close_all_subnodes',
 			["z"] = "close_all_nodes",
 			--["Z"] = "expand_all_nodes",
+			["R"] = "refresh",
 			["a"] = {
 				"add",
-				-- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
 				-- some commands may take optional config options, see `:h neo-tree-mappings` for details
 				config = {
 					show_path = "none", -- "none", "relative", "absolute"
 				},
 			},
-			["A"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
+			["A"] = "add_directory", -- also accepts the config.show_path and config.insert_as options.
 			["d"] = "delete",
 			["r"] = "rename",
 			["y"] = "copy_to_clipboard",
 			["x"] = "cut_to_clipboard",
 			["p"] = "paste_from_clipboard",
-			["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
-			-- ["c"] = {
-			--  "copy",
-			--  config = {
-			--    show_path = "none" -- "none", "relative", "absolute"
-			--  }
-			--}
-			["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
+			["c"] = "copy", -- takes text input for destination, also accepts the config.show_path and config.insert_as options
+			["m"] = "move", -- takes text input for destination, also accepts the config.show_path and config.insert_as options
+			["e"] = "toggle_auto_expand_width",
 			["q"] = "close_window",
-			["R"] = "refresh",
 			["?"] = "show_help",
 			["<"] = "prev_source",
 			[">"] = "next_source",
 		},
 	},
-	nesting_rules = {},
 	filesystem = {
-		filtered_items = {
-			visible = true, -- when true, they will just be displayed differently than normal items
-			hide_dotfiles = false,
-			hide_gitignored = false,
-			hide_hidden = true, -- only works on Windows for hidden files/directories
-			hide_by_name = {
-				--"node_modules"
-			},
-			hide_by_pattern = { -- uses glob style patterns
-				--"*.meta",
-				--"*/src/*/tsconfig.json",
-			},
-			always_show = { -- remains visible even if other settings would normally hide it
-				--".gitignored",
-			},
-			never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-				".DS_Store",
-				--"thumbs.db"
-			},
-			never_show_by_pattern = { -- uses glob style patterns
-				--".null-ls_*",
-			},
-		},
-		follow_current_file = {
-			enabled = true, -- This will find and focus the file in the active buffer every time
-			--               -- the current file is changed while the tree is open.
-			leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
-		},
-		group_empty_dirs = false, -- when true, empty folders will be grouped together
-		hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
-		-- in whatever position is specified in window.position
-		-- "open_current",  -- netrw disabled, opening a directory opens within the
-		-- window like netrw would, regardless of window.position
-		-- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
-		use_libuv_file_watcher = false, -- This will use the OS level file watchers to detect changes
-		-- instead of relying on nvim autocmd events.
 		window = {
 			mappings = {
-				["<bs>"] = "navigate_up",
-				["."] = "set_root",
 				["H"] = "toggle_hidden",
 				["/"] = "fuzzy_finder",
 				["D"] = "fuzzy_finder_directory",
+				--["/"] = "filter_as_you_type", -- this was the default until v1.28
 				["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
 				-- ["D"] = "fuzzy_sorter_directory",
 				["f"] = "filter_on_submit",
-				["<c-x>"] = "clear_filter",
+				["<C-x>"] = "clear_filter",
+				["<bs>"] = "navigate_up",
+				["."] = "set_root",
 				["[g"] = "prev_git_modified",
 				["]g"] = "next_git_modified",
 			},
@@ -193,28 +268,53 @@ require("neo-tree").setup({
 				["<C-p>"] = "move_cursor_up",
 			},
 		},
-
-		commands = {}, -- Add a custom command or override a global one using the same function name
+		async_directory_scan = "auto", -- "auto"   means refreshes are async, but it's synchronous when called from the Neotree commands.
+		scan_mode = "shallow", -- "shallow": Don't scan into directories to detect possible empty directory a priori
+		bind_to_cwd = true, -- true creates a 2-way binding between vim's cwd and neo-tree's root
+		cwd_target = {
+			sidebar = "tab", -- sidebar is when position = left or right
+			current = "window", -- current is when position = current
+		},
+		filtered_items = {
+			visible = false,
+			force_visible_in_empty_folder = false,
+			show_hidden_count = true,
+			hide_dotfiles = false,
+			hide_gitignored = true,
+			hide_hidden = true,
+			hide_by_name = {
+				".venv",
+				".git",
+				"vendor",
+			},
+			always_show = {
+				".gitignore",
+				".github",
+				".gitlab-ci.yml",
+			},
+		},
+		find_by_full_path_words = false,
+		group_empty_dirs = false,
+		search_limit = 50,
+		follow_current_file = { enabled = true },
+		hijack_netrw_behavior = "open_default",
+		use_libuv_file_watcher = true,
 	},
 	buffers = {
-		follow_current_file = {
-			enabled = true, -- This will find and focus the file in the active buffer every time
-			--              -- the current file is changed while the tree is open.
-			leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
-		},
-		group_empty_dirs = true, -- when true, empty folders will be grouped together
-		show_unloaded = true,
+		bind_to_cwd = true,
+		follow_current_file = { enabled = true },
+		group_empty_dirs = true,
+		show_unloaded = false,
 		window = {
 			mappings = {
-				["bd"] = "buffer_delete",
 				["<bs>"] = "navigate_up",
 				["."] = "set_root",
+				["bd"] = "buffer_delete",
 			},
 		},
 	},
 	git_status = {
 		window = {
-			position = "float",
 			mappings = {
 				["A"] = "git_add_all",
 				["gu"] = "git_unstage_file",
@@ -223,6 +323,56 @@ require("neo-tree").setup({
 				["gc"] = "git_commit",
 				["gp"] = "git_push",
 				["gg"] = "git_commit_and_push",
+			},
+		},
+	},
+	document_symbols = {
+		kinds = {
+			Unknown = { icon = "?", hl = "" },
+			Root = { icon = "", hl = "NeoTreeRootName" },
+			File = { icon = "󰈙", hl = "Tag" },
+			Module = { icon = "", hl = "Exception" },
+			Namespace = { icon = "", hl = "Include" },
+			Package = { icon = "󰏗", hl = "Label" },
+			Class = { icon = "󰠱", hl = "Include" },
+			Method = { icon = "󰊕", hl = "Function" },
+			Property = { icon = "󰜢", hl = "@property" },
+			Field = { icon = "󰜢", hl = "@field" },
+			Constructor = { icon = "󰩀", hl = "@constructor" },
+			Enum = { icon = "", hl = "@number" },
+			Interface = { icon = "", hl = "Type" },
+			Function = { icon = "󰊕", hl = "Function" },
+			Variable = { icon = "󰀫", hl = "@variable" },
+			Constant = { icon = "󰏿", hl = "Constant" },
+			-- Data type.
+			String = { icon = "󰉿", hl = "String" },
+			Number = { icon = "", hl = "Number" },
+			Boolean = { icon = "", hl = "Boolean" },
+			Array = { icon = "󱒅", hl = "Type" },
+			Object = { icon = "", hl = "Type" },
+			Key = { icon = "", hl = "" },
+			Null = { icon = "󰟢", hl = "Constant" },
+			EnumMember = { icon = "", hl = "Number" },
+			Struct = { icon = "", hl = "Type" },
+			Event = { icon = "", hl = "Constant" },
+			Operator = { icon = "", hl = "Operator" },
+			TypeParameter = { icon = "󰩀", hl = "Type" },
+		},
+	},
+	example = {
+		renderers = {
+			custom = {
+				{ "indent" },
+				{ "icon", default = "C" },
+				{ "custom" },
+				{ "name" },
+			},
+		},
+		window = {
+			mappings = {
+				["<cr>"] = "toggle_node",
+				["<C-e>"] = "example_command",
+				["d"] = "show_debug_info",
 			},
 		},
 	},

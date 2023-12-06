@@ -24,28 +24,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
-local function open_nvim_tree(data)
-	-- buffer is a directory
-	local directory = vim.fn.isdirectory(data.file) == 1
-
-	if not directory then
-		return
-	end
-
-	-- change to the directory
-	vim.cmd.cd(data.file)
-
-	-- open the tree
-	require("nvim-tree.api").tree.open()
-end
-
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
-	callback = open_nvim_tree,
-})
-
--- Honestly, no clue what this does
-vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_1' . tabpagenr() | quit | endif")
-
 vim.cmd("autocmd BufEnter *.go,*.rs,*.cpp,*.c setlocal shiftwidth=4 tabstop=4")
 vim.cmd("autocmd BufEnter ?akefile* setlocal shiftwidth=2 tabstop=2") -- For any Makefile, set indent to 2
 
