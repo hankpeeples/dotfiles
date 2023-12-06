@@ -1,34 +1,13 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.cargo/bin:/usr/bin:/usr/local/bin:/sbin:$PATH
 
-export XDG_CONFIG_HOME="~/.config/"
+export XDG_CONFIG_HOME="$HOME/.config/"
 
 # Turn on Go Modules
 export GO111MODULE=on
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/hankp/.oh-my-zsh"
-export MYVIMRC="~/.config/nvim"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="spaceship"
-# source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+export ZSH="$HOME/.oh-my-zsh"
+export MYVIMRC="$HOME/.config/nvim"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
@@ -38,18 +17,6 @@ zstyle ':completion:*' menu select
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
@@ -62,14 +29,6 @@ COMPLETION_WAITING_DOTS="true"
 # much, much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
@@ -78,7 +37,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions 
+plugins=(zsh-256color zsh-completions zsh-autosuggestions zsh-syntax-highlighting
   colored-man-pages docker 
 )
 
@@ -105,9 +64,6 @@ export EDITOR='nvim'
 # Set personal aliases, overriding those provided by oh-my-zsh libs, plugins, and themes.
 #alias archFlags="arch -x86_64" # Needed for `brew` installs
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 alias nvim='nvim -u ~/.config/nvim/init.lua'
 alias nvimw='nvim -u ~/.config/nvim/initWeak.lua'
 alias zshconfig="nvim ~/.zshrc"
@@ -137,25 +93,11 @@ alias lg="lazygit" # Open lazygit terminal gui
 alias icat="kitty +kitten icat"
 alias tree="tree -C -a -I '.git|.github|.yarn|.DS_Store|node_modules'"
 
-help() {
-    "$@" --help 2>&1 | bathelp
-}
-
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-  autoload -Uz compinit
-  compinit
-fi
-
 eval "$(starship init zsh)"
 
 fpath+=${ZDOTDIR:-~}/.zsh_functions
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$HOME/.config//nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-# Created by `pipx` on 2023-09-20 16:28:52
-export PATH="$PATH:/home/hankp/.local/bin"
